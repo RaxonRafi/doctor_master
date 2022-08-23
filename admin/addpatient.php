@@ -16,7 +16,6 @@ if (isset($_POST['submit'])) {
     $result = curl_exec($ch);
     curl_close($ch);
     $result_decode = json_decode($result);
-
 }
 
 
@@ -68,17 +67,17 @@ if (isset($_POST['submit'])) {
                 <h3 class="widget-title">Add Patient </h3>
 
                 <!-- <?php
-                if (isset($_SESSION['error'])) {
-                ?>
+                        if (isset($_SESSION['error'])) {
+                        ?>
                     <div class="alert alert-danger">
                         <?php echo $_SESSION['error'] ?>
                     </div>
                 <?php
-                }
+                        }
                 ?> -->
 
                 <?php
-                if(isset($_SESSION['success'])){
+                if (isset($_SESSION['success'])) {
                 ?>
                     <div class="alert alert-success">
                         <?php echo $_SESSION['success'] ?>
@@ -93,11 +92,6 @@ if (isset($_POST['submit'])) {
                     <input type="hidden" name="doctor_id" value="<?php echo $_SESSION['doc_id'] ?>">
 
                     <div class="form-row mt-5">
-
-
-
-                    
-
                         <div class="form-group col-md-6">
                             <label for="patient-name">Patient Name</label>
                             <input name="name" type="text" class="form-control" placeholder="Patient name" id="patient-name">
@@ -116,8 +110,15 @@ if (isset($_POST['submit'])) {
                         </div>
                         <div class="form-group col-md-6">
                             <label for="phone">City</label>
-                            <input type="text" name="city" placeholder="Enter Your City" class="form-control" id="phone">
+                            <input type="search" name="city" placeholder="Enter Your City" class="form-control" id="searchcity">
+                            <span id="result"></span>
                         </div>
+
+                        <!-- <div class="form-group col-md-6">
+                            <div class="list-group">
+
+                            </div>
+                        </div> -->
                         <div class="form-group col-md-6">
                             <label for="phone">Address</label>
                             <textarea type="text" name="address" placeholder="Enter Your Address" class="form-control" id="phone"></textarea>

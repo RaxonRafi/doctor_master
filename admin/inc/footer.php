@@ -28,6 +28,9 @@
 			<script src="js/custom.js"></script>
 			<!-- select2 -->
 			<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+			<!-- ajax cdn -->
+			<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+
 			<script>
 				$(document).ready(function() {
 					$('#condition_dropdown').select2();
@@ -40,6 +43,77 @@
 
 				});
 			</script>
+
+			<!--city search script -->
+			<script>
+				$(document).ready(function() {
+					$('#searchcity').keyup(function() {
+						const input = $(this).val();
+						//alert(input);
+						if (input != "") {
+							$.ajax({
+								url: "searchcity.php",
+								method: "POST",
+								data: {
+									input: input
+								},
+								success: function(data) {
+									$('#result').html(data);
+									$('#result').css("display", "block");
+
+
+								}
+							});
+						} else {
+							$('#result').css("display", "none");
+						}
+					});
+
+					$(document).on('click', 'a', function() {
+
+						$('#searchcity').val($(this).text());
+						$('#result').html('');
+					})
+				});
+			</script>
+
+			<!--city search script -->
+
+			<!--Medicine search script -->
+			<script>
+				$(document).ready(function() {
+					$('#searchmedicine').keyup(function() {
+						const input = $(this).val();
+						//alert(input);
+						if (input != "") {
+							$.ajax({
+								url: "searchmedicine.php",
+								method: "POST",
+								data: {
+									input: input
+								},
+								success: function(data) {
+									$('#result2').html(data);
+									$('#result2').css("display", "block");
+
+
+								}
+							});
+						} else {
+							$('#result2').css("display", "none");
+						}
+					});
+
+					$(document).on('click', 'a', function() {
+
+						$('#searchmedicine').val($(this).text());
+						$('#result2').html('');
+					})
+				});
+			</script>
+
+			<!--Medicine search script -->
+
 			</body>
 
 			</html>

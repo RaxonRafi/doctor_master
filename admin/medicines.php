@@ -1,6 +1,20 @@
 <?php
 $medicine = true;
 require_once "inc/header.php";
+// $arr['medicine_name'] = $_GET['medicine_name'];
+// $url = "https://devapi.oxyjon.com/api/doctors/searchmedicine";
+// $ch = curl_init();
+// curl_setopt($ch, CURLOPT_URL, $url);
+// curl_setopt($ch, CURLOPT_POST, true);
+// curl_setopt($ch, CURLOPT_POSTFIELDS, $arr);
+// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+// $result = curl_exec($ch);
+// curl_close($ch);
+// $result_after_decode = json_decode($result);
+// $data = $result_after_decode->data;
+// $data_encode = json_encode($data);
+// $data_decode  = json_decode($data_encode);
+// print_r($result_after_decode);
 ?>
 <div class="container-fluid">
 
@@ -17,14 +31,18 @@ require_once "inc/header.php";
                         <form action="" method="post">
                             <div class="form-group mt-5">
                                 <label>Medicines</label>
-                                <div class="form-group">
-                                    <select style="width:100%;" class="form-control" id="medicine_dropdown" multiple>
+                                <div class="form-group">    
+                                        <!-- //<label for="phone">medicine name</label> -->
+                                        <input type="search" name="medicine_name" placeholder="Enter Your medicine" class="form-control" id="searchmedicine">
+                                    </div>
+                                    <span id="result2"></span>
+                                    <!-- <select name="medicine_name[]" style="width:100%;" class="form-control" id="medicine_dropdown" multiple>
                                         <option value="">1</option>
                                         <option value="">2</option>
                                         <option value="">3</option>
                                         <option value="">4</option>
-                                    </select>
-                                </div>
+                                    </select> -->
+                           
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="Enter quantity of Medicine"></input>
                                 </div>
