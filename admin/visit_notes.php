@@ -1,6 +1,15 @@
 <?php
 $patient_details = true;
 require_once "inc/header.php";
+$url = "https://devapi.oxyjon.com/api/doctors/masterdata";
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$result = curl_exec($ch);
+curl_close($ch);
+$result_after_decode = json_decode($result);
+$conditions = $result_after_decode->data->HealthCondition;
+$procedures = $result_after_decode->data->Procedure;
 
 ?>
 <!-- Breadcrumb -->
@@ -126,21 +135,29 @@ require_once "inc/header.php";
 
                         <div class="form-group">
                             <select style="width: 75%;" class="form-control" id="diagnosis_dropdown" multiple>
-                                <option>--List of Tests--</option>
-                                <option>HbA1c</option>
-                                <option>Creatinine</option>
-                                <option>KFT</option>
-                                <option>Lipids</option>
+                                <option>--List of Conditions--</option>
+                                <?php
+                                foreach ($conditions as $condition) {
+                                ?>
+                                    <option value="<?php echo $condition->id?>"><?php echo $condition->property_type ?></option>
+                                <?php
+                                };
+                                ?>
                             </select>
                         </div>
                         <label>Investigation</label>
                         <div class="form-group">
                             <select style="width: 75%;" class="form-control" id="investigation_dropdown" multiple>
                                 <option>--List of Tests--</option>
-                                <option>HbA1c</option>
-                                <option>Creatinine</option>
-                                <option>KFT</option>
-                                <option>Lipids</option>
+
+                                <?php
+                                foreach ($procedures as $procedure) {
+                                ?>
+                                    <option value="<?php echo $procedure->id ?>"><?php echo $procedure->property_type ?></option>
+                                <?php
+                                };
+                                ?>
+
                             </select>
                         </div>
                         <label>Referral</label>
@@ -151,7 +168,7 @@ require_once "inc/header.php";
                                 <option>Cardiologist</option>
                                 <option>Nephrologist</option>
                                 <option>Ophthalmologist</option>
-                                <option>a footcare specialist</option>
+                                <option>Footcare Specialist</option>
                             </select>
                         </div>
                         <label>Advise for Procedure</label>

@@ -51,8 +51,8 @@ session_start();
                         <div class="sidebar-header"> <a href="dashboard.php"><img src="images/logo.png" class="logo" alt="logo"></a>
                         </div>
                     </div>
-                    <ul class="nav justify-content-end">
-                        <!-- <li class="nav-item">
+                    <!-- <ul class="nav justify-content-end">
+                         <li class="nav-item">
                             <a class="nav-link">
                                 <span title="Fullscreen" class="ti-fullscreen fullscreen"></span>
                             </a>
@@ -82,7 +82,7 @@ session_start();
                                 </div>
                             </div>
                         </li> -->
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">
                                 <span class="ti-announcement"></span>
                             </a>
@@ -112,7 +112,7 @@ session_start();
                                     <span class="ti-power-off"></span> Logout</a>
                             </div>
                         </li>
-                    </ul>
+                    </ul> --> 
 
                 </nav>
             </div>
@@ -153,7 +153,44 @@ session_start();
 
                         </ul>
                     </div>
+                    <ul class="nav justify-content-end">
+
+                        <li class="nav-item">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">
+                                <span class="ti-announcement"></span>
+                            </a>
+                            <div class="dropdown-menu proclinic-box-shadow2 notifications animated flipInY">
+                                <h5>Notifications</h5>
+                                <a class="dropdown-item" href="#">
+                                    <span class="ti-wheelchair"></span> New Patient Added</a>
+                                <a class="dropdown-item" href="#">
+                                    <span class="ti-money"></span> Patient payment done</a>
+                                <a class="dropdown-item" href="#">
+                                    <span class="ti-time"></span>Patient Appointment booked</a>
+                                <a class="dropdown-item" href="#">
+                                    <span class="ti-wheelchair"></span> New Patient Added</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="ti-user"></span>
+                            </a>
+                            <div class="dropdown-menu proclinic-box-shadow2 profile animated flipInY">
+                                <h5><?php echo $_SESSION['username'] ?></h5>
+                                <a class="dropdown-item" href="#">
+                                    <span class="ti-settings"></span> Settings</a>
+                                <a class="dropdown-item" href="#">
+                                    <span class="ti-help-alt"></span> Help</a>
+                                <a class="dropdown-item" href="logout.php">
+                                    <span class="ti-power-off"></span> Logout</a>
+                            </div>
+                        </li>
+
+                    </ul>
+
                 </nav>
+
+
             </div>
             <!-- /Menu -->
             <!-- Breadcrumb -->

@@ -319,7 +319,7 @@ Responsive Style Sheet
         padding: 7px;
     }
     .top-brand .navbar-header{
-        margin-bottom: 10px;    
+        margin-bottom: -12px;    
     }
     nav.navbar.navbar-default {
         justify-content: center;
@@ -334,6 +334,10 @@ Responsive Style Sheet
     .breadcrumb-bar {
         padding-left: 5px;
     }
+
+    .sidebar-header{
+        display:none;
+    } 
     
 } 
 

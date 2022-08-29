@@ -1,7 +1,5 @@
 <?php
-
 $patient_details = true;
-
 require_once "inc/header.php";
 
 $result = " ";
@@ -16,22 +14,8 @@ if (isset($_POST['submit'])) {
     $result = curl_exec($ch);
     curl_close($ch);
     $result_decode = json_decode($result);
+  
 }
-
-
-// $url_city = "https://devapi.oxyjon.com/api/doctors/searchcity";
-// $ch = curl_init();
-// curl_setopt($ch, CURLOPT_URL, $url_city);
-//  curl_setopt($ch, CURLOPT_POST, true);
-//  curl_setopt($ch, CURLOPT_POSTFIELDS, true);
-// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-// $result = curl_exec($ch);
-// curl_close($ch);
-// $result_decode = json_decode($result);
-// print_r($result_decode);
-// print_r($_GET['city_name']);
-
 
 ?>
 <!-- Breadcrumb -->
@@ -75,7 +59,7 @@ if (isset($_POST['submit'])) {
                 <?php
                         }
                 ?> -->
-
+<!-- 
                 <?php
                 if (isset($_SESSION['success'])) {
                 ?>
@@ -84,7 +68,7 @@ if (isset($_POST['submit'])) {
                     </div>
                 <?php
                 };
-                ?>
+                ?> -->
 
 
                 <form action="addpatient_post.php" method="POST">

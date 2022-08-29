@@ -1,6 +1,6 @@
 <?php
 session_start();
-print_r($_POST);
+
   $arr['name'] = $_POST['name'];
   $arr['birth_date'] = $_POST['birth_date'];
   $arr['mobile'] = $_POST['mobile'];

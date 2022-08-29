@@ -1,7 +1,7 @@
 			<!--Copy Rights-->
 			<div class="container">
 				<div class="d-sm-flex justify-content-center">
-					<span class="text-muted text-center d-block d-sm-inline-block">Copyright © <?php echo date('Y') ?> <a href="https://oxyjon.com/" target="_blank">oxyjon</a>. All rights reserved.</span>
+					<span class="text-muted text-center d-block d-sm-inline-block">Copyright © <?php echo date('Y') ?> <a href="https://oxyjon.com/" target="_blank">Oxyjon</a>. All rights reserved.</span>
 				</div>
 			</div>
 			<!-- /Copy Rights-->

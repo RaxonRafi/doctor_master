@@ -1,20 +1,11 @@
 <?php
+
+use LDAP\Result;
+
 $medicine = true;
 require_once "inc/header.php";
-// $arr['medicine_name'] = $_GET['medicine_name'];
-// $url = "https://devapi.oxyjon.com/api/doctors/searchmedicine";
-// $ch = curl_init();
-// curl_setopt($ch, CURLOPT_URL, $url);
-// curl_setopt($ch, CURLOPT_POST, true);
-// curl_setopt($ch, CURLOPT_POSTFIELDS, $arr);
-// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-// $result = curl_exec($ch);
-// curl_close($ch);
-// $result_after_decode = json_decode($result);
-// $data = $result_after_decode->data;
-// $data_encode = json_encode($data);
-// $data_decode  = json_decode($data_encode);
-// print_r($result_after_decode);
+require_once "db/db.php";
+$doc_id = $_SESSION['doc_id'];
 ?>
 <div class="container-fluid">
 
@@ -28,33 +19,34 @@ require_once "inc/header.php";
 
                 <div class="row">
                     <div class="col-md-6 col-sm-12">
-                        <form action="" method="post">
+                        <form action="medicine_post.php" method="POST">
+                            <input name="doc_id" value="<?php echo $doc_id ?>" type="hidden">
                             <div class="form-group mt-5">
                                 <label>Medicines</label>
-                                <div class="form-group">    
-                                        <!-- //<label for="phone">medicine name</label> -->
-                                        <input type="search" name="medicine_name" placeholder="Enter Your medicine" class="form-control" id="searchmedicine">
-                                    </div>
-                                    <span id="result2"></span>
-                                    <!-- <select name="medicine_name[]" style="width:100%;" class="form-control" id="medicine_dropdown" multiple>
+                                <div class="form-group">
+                                    <!-- //<label for="phone">medicine name</label> -->
+                                    <input type="search" name="medicine_name" placeholder="Enter Your medicine" class="form-control" id="searchmedicine">
+                                </div>
+                                <span id="result2"></span>
+                                <!-- <select name="medicine_name[]" style="width:100%;" class="form-control" id="medicine_dropdown" multiple>
                                         <option value="">1</option>
                                         <option value="">2</option>
                                         <option value="">3</option>
                                         <option value="">4</option>
                                     </select> -->
-                           
+
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Enter quantity of Medicine"></input>
+                                    <input type="text" name="quantity" class="form-control" placeholder="Enter quantity of Medicine"></input>
                                 </div>
                                 <label>Time of the day</label>
                                 <div class="form-group  d-flex">
-                                    <select style="width:100%;" class="form-control" id="time_dropdown" multiple>
+                                    <select name="time_day[]" style="width:100%;" class="form-control" id="time_dropdown" multiple>
                                         <option>--Select one--</option>
                                         <option>Empty stomach</option>
-                                        <option>Before lunch </option>
-                                        <option>After lunch </option>
                                         <option>Before breakfast</option>
                                         <option>After breakfast</option>
+                                        <option>Before lunch </option>
+                                        <option>After lunch </option>
                                         <option>Before dinner </option>
                                         <option>After dinner </option>
                                         <option>Bed time</option>
@@ -64,22 +56,29 @@ require_once "inc/header.php";
                                 <label>Continue till</label>
                                 <div class="form-group d-flex">
 
-                                    <select col="3" class="form-control" id="exampleFormControlSelect1">
+                                    <select name="continue_till" col="3" class="form-control" id="exampleFormControlSelect1">
                                         <option>--Select day or month--</option>
-                                        <option>Day</option>
-                                        <option>Month</option>
+                                        <option value="day">Day</option>
+                                        <option value="month">Month</option>
                                     </select>
-                                    <input placeholder="enter date" type="number">
+                                    <input name="date" placeholder="enter date" type="number">
                                 </div>
 
 
 
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button name="submit" type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <!-- Responsive Table-->
+
+                        <?php
+                        $select_query = "SELECT * FROM medicines";
+                        $query_run = mysqli_query($db_connect, $select_query);
+                        $result =$query_run;
+                         
+                        ?>
 
                         <div class="widget-area-2 proclinic-box-shadow">
                             <h3 class="widget-title mb-2">List of Medicines</h3>
@@ -93,42 +92,30 @@ require_once "inc/header.php";
                                                 <th scope="col">Quantity</th>
                                                 <th scope="col">Time of the day</th>
                                                 <th scope="col">Continue till</th>
+                                                <th scope="col">Action</th>
 
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Cell</td>
-                                                <td>Cell</td>
-                                                <td>Cell</td>
-                                                <td>Cell</td>
-                                                <td>Cell</td>
 
-                                            </tr>
-                                            <tr>
-                                                <td>Cell</td>
-                                                <td>Cell</td>
-                                                <td>Cell</td>
-                                                <td>Cell</td>
-                                                <td>Cell</td>
+                                            <?php
+                                            $serial = 1;
+                                            foreach ($result as $data) {
+ 
+                                            ?> 
+                                                <tr>
+                                                    <td><?php echo $serial++ ?></td>
+                                                    <td><?php echo $data['medicine_name'] ?></td>
+                                                    <td><?php echo $data['quantity'] ?></td>
+                                                    <td><?php echo $data['time_of_the_day'] ?></td>
+                                                    <td><?php echo $data['continue_till_date']." ".$data['continue_till'] ?></td>
+                                                    <td><a href="delete_medi.php?id=<?php echo $data['id'] ?>">x</a></td>
 
-                                            </tr>
-                                            <tr>
-                                                <td>Cell</td>
-                                                <td>Cell</td>
-                                                <td>Cell</td>
-                                                <td>Cell</td>
-                                                <td>Cell</td>
+                                                </tr>
+                                            <?php
+                                            }
+                                            ?> 
 
-                                            </tr>
-                                            <tr>
-                                                <td>Cell</td>
-                                                <td>Cell</td>
-                                                <td>Cell</td>
-                                                <td>Cell</td>
-                                                <td>Cell</td>
-
-                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
