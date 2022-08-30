@@ -33,10 +33,6 @@ $pagi_path = $result_after_decode->patients->path;
 $data_encode = json_encode($data);
 $data_decode = json_decode($data_encode);
 
-
-
-
-
 ?>
 
 <div class="container-fluid mt-0">
