@@ -2,6 +2,7 @@
 
 $patient_details = true;
 require_once "inc/header.php";
+require_once "db/db.php";
 $url = "https://devapi.oxyjon.com/api/doctors/masterdata";
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
@@ -11,6 +12,7 @@ curl_close($ch);
 $result_after_decode = json_decode($result);
 $conditions = $result_after_decode->data->HealthCondition;
 $procedures = $result_after_decode->data->Procedure;
+
 
 
 ?>
@@ -50,13 +52,13 @@ $procedures = $result_after_decode->data->Procedure;
                 <form method="POST" enctype="multipart/form-data" action="visitNotes_post.php">
 
                     <input name="doc_id" value="<?php echo $_SESSION['doc_id'] ?>" type="hidden">
-                    <input name="patient_id" value="<?php echo $_SESSION['patient_id']?>" type="hidden">
+                    <input name="patient_id" value="<?php echo $_SESSION['patient_id'] ?>" type="hidden">
 
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group mt-5">
                                 <label for="exampleInputEmail1">Blood Test Report</label>
-                                <input rows="3" type="file" name="blood_test_report" class="form-control" placeholder="Physical examination">
+                                <input rows="3" type="file" name="blood_test_report" class="form-control">
 
                             </div>
                         </div>
@@ -145,7 +147,7 @@ $procedures = $result_after_decode->data->Procedure;
                                 <?php
                                 foreach ($conditions as $condition) {
                                 ?>
-                                    <option value="<?php echo $condition->id ?>"><?php echo $condition->property_type ?></option>
+                                    <option><?php echo $condition->property_type ?></option>
                                 <?php
                                 };
                                 ?>
@@ -159,7 +161,7 @@ $procedures = $result_after_decode->data->Procedure;
                                 <?php
                                 foreach ($procedures as $procedure) {
                                 ?>
-                                    <option value="<?php echo $procedure->id ?>"><?php echo $procedure->property_type ?></option>
+                                    <option><?php echo $procedure->property_type ?></option>
                                 <?php
                                 };
                                 ?>
@@ -197,25 +199,25 @@ $procedures = $result_after_decode->data->Procedure;
                         </div>
                         <label>Prescription</label>
                         <div class="form-check">
-                            <input name="dietary_modification" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <input name="prescription[]" value="Dietary modification" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                             <label class="form-check-label" for="flexCheckDefault">
                                 Dietary modification
                             </label>
                         </div>
                         <div class="form-check">
-                            <input name="lifestyle_modification" class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                            <input name="prescription[]" value ="Lifestyle modification" class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
                             <label class="form-check-label" for="flexCheckChecked">
                                 Lifestyle modification
                             </label>
                         </div>
                         <div class="form-check">
-                            <input name="blood_sugar_charting" class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                            <input name="prescription[]" value="Blood sugar charting" class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
                             <label class="form-check-label" for="flexCheckChecked">
                                 Blood sugar charting
                             </label>
                         </div>
 
-                        <button name="submit" type="submit" class="btn btn-primary mt-3">Submit</button>
+                        <button target="_blank" name="submit" type="submit" class="btn btn-primary mt-3">Submit</button>
                         </from>
 
 
@@ -228,6 +230,14 @@ $procedures = $result_after_decode->data->Procedure;
     </div>
 </div>
 <!-- /Main Content -->
+<?php
+$id = $_SESSION['patient_id'];
+$select_query = "SELECT * FROM visit_notes WHERE patient_id = $id";
+$data = mysqli_fetch_assoc( mysqli_query($db_connect,$select_query));
+?>
+
+
+
 <div class="container-fluid">
     <div class="row">
         <!-- Widget Item -->
@@ -238,8 +248,25 @@ $procedures = $result_after_decode->data->Procedure;
                     <table class="table table-bordered">
                         <tbody>
                             <tr>
+                                <td><strong>Report Name</strong></td>
+                                <?php
+                               if(isset($data['report_name'])){
+                                ?>
+                                <td><?php echo $data['report_name'] ?></td>
+                                <?php
+                               };
+                                ?>
+                                
+                            </tr>
+                            <tr>
                                 <td><strong>Examination</strong></td>
-                                <td>Name of examination</td>
+                                <?php
+                               if(isset($data['examination'])){
+                                ?>
+                                <td><?php echo $data['examination'] ?></td>
+                                <?php
+                               };
+                                ?>
                             </tr>
                             <tr>
                                 <td><strong>Health Parameters</strong> </td>
@@ -247,67 +274,204 @@ $procedures = $result_after_decode->data->Procedure;
                             </tr>
                             <tr>
                                 <td><strong>Blood Pressure</strong></td>
-                                <td> Blood Pressure goes here</td>
+                                <?php
+                               if(isset($data['blood_pressure'])){
+                                ?>
+                                <td><?php echo $data['blood_pressure'] ?></td>
+                                <?php
+                               };
+                                ?>
                             </tr>
                             <tr>
                                 <td><strong> Pulse</strong></td>
-                                <td>Pulse goes here</td>
+                                <?php
+                               if(isset($data['blood_pulse'])){
+                                ?>
+                                <td><?php echo $data['blood_pulse'] ?></td>
+                                <?php
+                               };
+                                ?>
                             </tr>
                             <tr>
                                 <td><strong>SPO2 </strong></td>
-                                <td>SPO2 goes here</td>
+                                <?php
+                               if(isset($data['spo2'])){
+                                ?>
+                                <td><?php echo $data['spo2'] ?></td>
+                                <?php
+                               };
+                                ?>
                             </tr>
                             <tr>
                                 <td><strong> Fasting Blood Sugar</strong></td>
-                                <td> Fasting Blood Sugar goes here</td>
+                                <?php
+                               if(isset($data['fasting_blood_sugar'])){
+                                ?>
+                                <td><?php echo $data['fasting_blood_sugar'] ?></td>
+                                <?php
+                               };
+                                ?>
                             </tr>
                             <tr>
                                 <td><strong> Random Blood Sugar</strong></td>
-                                <td> Random Blood Sugar goes here</td>
+                                <?php
+                               if(isset($data['random_blood_sugar'])){
+                                ?>
+                                <td><?php echo $data['random_blood_sugar'] ?></td>
+                                <?php
+                               };
+                                ?>
                             </tr>
                             <tr>
                                 <td><strong> HbA1c </strong></td>
-                                <td> HbA1c goes here</td>
+                                <?php
+                               if(isset($data['hbaic'])){
+                                ?>
+                                <td><?php echo $data['hbaic'] ?></td>
+                                <?php
+                               };
+                                ?>
                             </tr>
                             <tr>
                                 <td><strong> Creatinine</strong></td>
-                                <td> Creatinine goes here</td>
+                                <?php
+                               if(isset($data['creatinine'])){
+                                ?>
+                                <td><?php echo $data['creatinine'] ?></td>
+                                <?php
+                               };
+                                ?>
                             </tr>
                             <tr>
                                 <td><strong> Urine MACR</strong></td>
-                                <td> Urine MACR goes here</td>
+                                <?php
+                               if(isset($data['urine_macr'])){
+                                ?>
+                                <td><?php echo $data['urine_macr'] ?></td>
+                                <?php
+                               };
+                                ?>
                             </tr>
                             <tr>
                                 <td><strong> BUN</strong></td>
-                                <td> BUN goes here</td>
+                                <?php
+                               if(isset($data['bun'])){
+                                ?>
+                                <td><?php echo $data['bun'] ?></td>
+                                <?php
+                               };
+                                ?>
+                            </tr>
+                            <tr>
+                                <td><strong> vit_d3</strong></td>
+                                <?php
+                               if(isset($data['vit_d3'])){
+                                ?>
+                                <td><?php echo $data['vit_d3'] ?></td>
+                                <?php
+                               };
+                                ?>
+                            </tr>
+                            <tr>
+                                <td><strong> vit_b12</strong></td>
+                                <?php
+                               if(isset($data['vit_b12'])){
+                                ?>
+                                <td><?php echo $data['vit_b12'] ?></td>
+                                <?php
+                               };
+                                ?>
+                            </tr>
+                            <tr>
+                                <td><strong> uric_acid</strong></td>
+                                <?php
+                               if(isset($data['uric_acid'])){
+                                ?>
+                                <td><?php echo $data['uric_acid'] ?></td>
+                                <?php
+                               };
+                                ?>
+                            </tr>
+                            <tr>
+                                <td><strong> sgot</strong></td>
+                                <?php
+                               if(isset($data['sgot'])){
+                                ?>
+                                <td><?php echo $data['sgot'] ?></td>
+                                <?php
+                               };
+                                ?>>
+                            </tr>
+                            <tr>
+                                <td><strong> sgpt</strong></td>
+                                <?php
+                               if(isset($data['sgpt'])){
+                                ?>
+                                <td><?php echo $data['sgpt'] ?></td>
+                                <?php
+                               };
+                                ?>
                             </tr>
                             <tr>
                                 <td><strong>patient Conditions </strong></td>
-                                <td> patient conditions goes here</td>
+                                <?php
+                               if(isset($data['provisional_diagnosis'])){
+                                ?>
+                                <td><?php echo $data['provisional_diagnosis'] ?></td>
+                                <?php
+                               };
+                                ?>
                             </tr>
                             <tr>
                                 <td><strong>Investigation </strong></td>
-                                <td> Investigation goes here</td>
+                                <?php
+                               if(isset($data['investigation'])){
+                                ?>
+                                <td><?php echo $data['investigation'] ?></td>
+                                <?php
+                               };
+                                ?>
+                            </tr>
+                            <tr>
+                            <tr>
+                                <td><strong>Referral</strong></td>
+                                <?php
+                               if(isset($data['referral'])){
+                                ?>
+                                <td><?php echo $data['referral'] ?></td>
+                                <?php
+                               };
+                                ?>
                             </tr>
                             <tr>
                                 <td><strong>Advise for Procedure </strong></td>
-                                <td>Advise for Procedure goes here</td>
+                                <?php
+                               if(isset($data['advise_for_procedure'])){
+                                ?>
+                                <td><?php echo $data['advise_for_procedure'] ?></td>
+                                <?php
+                               };
+                                ?>
                             </tr>
                             <tr>
                                 <td><strong>Prescription </strong></td>
-                                <td> Prescription goes here</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Medicines</strong></td>
-                                <td> Medicines goes here</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Time of the day </strong></td>
-                                <td> Time of the day goes here</td>
+                                <?php
+                               if(isset($data['prescription'])){
+                                ?>
+                                <td><?php echo $data['prescription'] ?></td>
+                                <?php
+                               };
+                                ?>
                             </tr>
                             <tr>
                                 <td><strong>Repeat visit date</strong></td>
-                                <td> Repeat visit dategoes here</td>
+                                <?php
+                               if(isset($data['repeat_visit'])){
+                                ?>
+                                <td><?php echo $data['repeat_visit_date']." ".$data['repeat_visit'] ?></td>
+                                <?php
+                               };
+                                ?>
                             </tr>
                         </tbody>
                     </table>

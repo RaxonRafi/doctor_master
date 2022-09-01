@@ -114,9 +114,8 @@ $data_decode = json_decode($data_encode);
                                 <th>Gender</th>
                                 <th>Birth date</th>
                                 <th>Location</th>
-                                <th>Diabetes Type</th>
-                                <th>Last Visit date</th>
-                                <th>Next appointment date</th>
+                                <th>Repeat Visit Date</th>
+                                <th>Last Visit date</th>                              
                                 <th>Condition</th>
                                 <th>Alerts</th>
                                 <th>Action</th>
@@ -207,7 +206,7 @@ $data_decode = json_decode($data_encode);
                                     <?php
                                     }
                                     ?>
-                                    <?php
+                                    <!-- <?php
                                     if ($single_data->diabetesType) {
                                     ?>
                                         <td><?php echo $single_data->diabetesType ?></td>
@@ -219,7 +218,7 @@ $data_decode = json_decode($data_encode);
                                         <td></td>
                                     <?php
                                     }
-                                    ?>
+                                    ?> -->
                                     <?php
                                     if ($single_data->height_ft) {
                                     ?>

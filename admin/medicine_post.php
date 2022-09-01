@@ -2,7 +2,7 @@
 session_start();
 require_once "db/db.php";
 $doc_id = $_POST['doc_id'];
-$patient_id = 4201;
+$patient_id = $patient_id = $_POST['patient_id'];;
 $medicine_name = $_POST['medicine_name'];
 $quantity = $_POST['quantity'];
 $time_day_implode =$_POST['time_day'];

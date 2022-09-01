@@ -1,7 +1,5 @@
 <?php
 
-use LDAP\Result;
-
 $medicine = true;
 require_once "inc/header.php";
 require_once "db/db.php";
@@ -28,12 +26,6 @@ $doc_id = $_SESSION['doc_id'];
                                     <input type="search" name="medicine_name" placeholder="Enter Your medicine" class="form-control" id="searchmedicine">
                                 </div>
                                 <span id="result2"></span>
-                                <!-- <select name="medicine_name[]" style="width:100%;" class="form-control" id="medicine_dropdown" multiple>
-                                        <option value="">1</option>
-                                        <option value="">2</option>
-                                        <option value="">3</option>
-                                        <option value="">4</option>
-                                    </select> -->
 
                                 <div class="form-group">
                                     <input type="text" name="quantity" class="form-control" placeholder="Enter quantity of Medicine"></input>
@@ -63,9 +55,6 @@ $doc_id = $_SESSION['doc_id'];
                                     </select>
                                     <input name="date" placeholder="enter date" type="number">
                                 </div>
-
-
-
                             </div>
                             <button name="submit" type="submit" class="btn btn-primary">Submit</button>
                         </form>
