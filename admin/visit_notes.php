@@ -234,6 +234,7 @@ $procedures = $result_after_decode->data->Procedure;
 $id = $_SESSION['patient_id'];
 $select_query = "SELECT * FROM visit_notes WHERE patient_id = $id";
 $data = mysqli_fetch_assoc( mysqli_query($db_connect,$select_query));
+
 ?>
 
 
@@ -247,6 +248,17 @@ $data = mysqli_fetch_assoc( mysqli_query($db_connect,$select_query));
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <tbody>
+                        <tr>
+                                <td><strong>Blood Test Report</strong></td>
+                                <?php
+                               if(isset($data['blood_test_report'])){
+                                ?>
+                                <td><a href="../admin/reports/<?php echo $data['blood_test_report']?>" download> Download Blood Test Report </a></td>
+                                <?php
+                               };
+                                ?>
+                                
+                            </tr>
                             <tr>
                                 <td><strong>Report Name</strong></td>
                                 <?php
