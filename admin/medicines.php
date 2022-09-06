@@ -24,6 +24,7 @@ $doc_id = $_SESSION['doc_id'];
                                 <div class="form-group">
                                     <!-- //<label for="phone">medicine name</label> -->
                                     <input type="search" name="medicine_name" placeholder="Enter Your medicine" class="form-control" id="searchmedicine">
+                                    <input name="patient_id" value="<?php echo $_SESSION['patient_id'] ?>" type="hidden">
                                 </div>
                                 <span id="result2"></span>
 
@@ -63,7 +64,8 @@ $doc_id = $_SESSION['doc_id'];
                         <!-- Responsive Table-->
 
                         <?php
-                        $select_query = "SELECT * FROM medicines";
+                        $id =$_SESSION['patient_id'];
+                        $select_query = "SELECT * FROM medicines WHERE patient_id=$id";
                         $query_run = mysqli_query($db_connect, $select_query);
                         $result =$query_run;
                          

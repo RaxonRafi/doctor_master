@@ -52,6 +52,7 @@ $procedures = $result_after_decode->data->Procedure;
                 <form method="POST" enctype="multipart/form-data" action="visitNotes_post.php">
 
                     <input name="doc_id" value="<?php echo $_SESSION['doc_id'] ?>" type="hidden">
+                
                     <input name="patient_id" value="<?php echo $_SESSION['patient_id'] ?>" type="hidden">
 
                     <div class="row">
@@ -245,6 +246,7 @@ $data = mysqli_fetch_assoc( mysqli_query($db_connect,$select_query));
         <div class="col-md-12">
             <div class="widget-area-2 proclinic-box-shadow">
                 <h3 class="widget-title">Visit Notes</h3>
+                <a type="button" target="_black" class="btn btn-info float-right" href="pdf/index.php?id=<?php echo $_SESSION['patient_id']  ?>">Preview Prescription</a>
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <tbody>
