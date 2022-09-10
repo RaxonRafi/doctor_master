@@ -2,7 +2,7 @@
 $patient_details = true;
 require_once "inc/header.php";
 
-//print_r($_GET);
+$_SESSION['patient_name'] = $_GET['name'];
 $_SESSION['patient_id'] = $_GET['id'];
 
 ?>

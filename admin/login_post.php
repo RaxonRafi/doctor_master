@@ -20,6 +20,12 @@ $data = $result_after_decode->errorCode;
 $data_name = $result_after_decode->data;
 $_SESSION['username']= $result_after_decode->data->fullName;
 $_SESSION['doc_id']= $result_after_decode->data->doc_id;
+$_SESSION['qualification']= $result_after_decode->data->qualification;
+$_SESSION['address']= $result_after_decode->data->address;
+$_SESSION['mobileNumber']= $result_after_decode->data->mobileNumber;
+$_SESSION['state']= $result_after_decode->data->state;
+$_SESSION['city']= $result_after_decode->data->city;
+$_SESSION['locality']= $result_after_decode->data->locality;
 
   if($data == 0){
       header('location:dashboard.php');

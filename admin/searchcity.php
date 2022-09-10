@@ -15,15 +15,15 @@ if(isset($_POST['input'])){
     $data = $result_after_decode->data;
     $data_encode = json_encode($data);
     $data_decode  = json_decode($data_encode);
-
+   
 }
-
-
 
 foreach ($data_decode as $result) {
 
-    echo "<a href='#' class='list-group-item border-1'>" . $result->city_name . "</a>";
+    echo "<option>$result->id</option>";
+
 }
+
 ?>
 
 

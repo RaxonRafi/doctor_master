@@ -20,6 +20,7 @@ session_start();
   curl_close($ch);
   $result_after_decode = json_decode($result);
   $data = $result_after_decode->errorCode;
+
  
 if($data != null){
   

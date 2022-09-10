@@ -69,7 +69,7 @@
 						}
 					});
 
-					$(document).on('click', 'a', function() {
+					$(document).on('click', 'option', function() {
 
 						$('#searchcity').val($(this).text());
 						$('#result').html('');

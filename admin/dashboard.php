@@ -260,7 +260,7 @@ $data_decode = json_decode($data_encode);
                                     ?>
                                     <td></td>
                                     <td>
-                                        <a type="button" class="btn btn-info" href="patient_details.php?id=<?php echo $single_data->profileId  ?>">View details</a>
+                                        <a type="button" class="btn btn-info" href="patient_details.php?id=<?php echo $single_data->profileId?>&name=<?php echo $single_data->name?>">View details</a>
                                     </td>
                                 </tr>
                             <?php

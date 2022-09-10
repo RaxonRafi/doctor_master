@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
     $result = curl_exec($ch);
     curl_close($ch);
     $result_decode = json_decode($result);
-  
+   
 }
 
 ?>
@@ -78,7 +78,7 @@ if (isset($_POST['submit'])) {
                     <div class="form-row mt-5">
                         <div class="form-group col-md-6">
                             <label for="patient-name">Patient Name</label>
-                            <input name="name" type="text" class="form-control" placeholder="Patient name" id="patient-name">
+                            <input name="name" required type="text" class="form-control" placeholder="Patient name" id="patient-name">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="dob">Date Of Birth</label>
@@ -90,22 +90,16 @@ if (isset($_POST['submit'])) {
                         </div>
                         <div class="form-group col-md-6">
                             <label for="phone">Phone</label>
-                            <input type="phone" name="mobile" placeholder="Phone" class="form-control" id="phone">
+                            <input type="phone" required  name="mobile" placeholder="Phone" class="form-control" id="phone">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="phone">City</label>
-                            <input type="search" name="city" placeholder="Enter Your City" class="form-control" id="searchcity">
+                            <input type="search" name="city" required placeholder="Enter Your City" class="form-control" id="searchcity">
                             <span id="result"></span>
                         </div>
-
-                        <!-- <div class="form-group col-md-6">
-                            <div class="list-group">
-
-                            </div>
-                        </div> -->
                         <div class="form-group col-md-6">
                             <label for="phone">Address</label>
-                            <textarea type="text" name="address" placeholder="Enter Your Address" class="form-control" id="phone"></textarea>
+                            <textarea type="text" required name="address" placeholder="Enter Your Address" class="form-control" id="phone"></textarea>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Date Of Registration</label>
@@ -113,7 +107,7 @@ if (isset($_POST['submit'])) {
                         </div>
                         <div class="form-group col-md-6">
                             <label for="gender">Gender</label>
-                            <select name="gender" class="form-control" id="gender">
+                            <select name="gender" required class="form-control" id="gender">
                                 <option value="M">Male</option>
                                 <option value="F">Female</option>
                                 <option>Other</option>

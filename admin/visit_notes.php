@@ -48,7 +48,7 @@ $procedures = $result_after_decode->data->Procedure;
         <!-- Widget Item -->
         <div class="col-md-12">
             <div class="widget-area-2 proclinic-box-shadow">
-                <h3 class="widget-title">Visit Notes</h3>
+                <!-- <h3 class="widget-title">Visit Notes</h3> -->
                 <form method="POST" enctype="multipart/form-data" action="visitNotes_post.php">
 
                     <input name="doc_id" value="<?php echo $_SESSION['doc_id'] ?>" type="hidden">
@@ -80,62 +80,76 @@ $procedures = $result_after_decode->data->Procedure;
                     <div class="form-group">
                         <label>Health Parameters</label>
                         <div class="row">
-                            <div class="col-12 d-flex">
-                                <div class="form-group">
-                                    <input name="blood_pressure" type="text" rows="3" class="form-control" placeholder="Enter Blood Pressure"></textarea>
+                            <div class="d-flex">
+                                <div class="form-group col-md-4 col-sm-3">
+                                <label for="blood_pressure" > BP </label>
+                                <input name="blood_pressure" id="blood_pressure" type="text" rows="3" class="form-control" placeholder=" BP">
                                 </div>
-                                <div class="form-group">
-                                    <input type="text" name="blood_pulse" rows="3" class="form-control" placeholder="Enter Blood Pulse "></textarea>
+                                <div class="form-group col-md-4 col-sm-3">
+                                <label for="blood_pulse"> Pulse </label>
+                                    <input type="text" name="blood_pulse" rows="3" class="form-control" placeholder="Pulse ">
                                 </div>
-                                <div class="form-group">
-                                    <input type="text" name="spo2" rows="3" class="form-control" placeholder="Enter SPO2 "></textarea>
+                                <div class="form-group col-md-4 col-sm-3">
+                                    <label for="spo2"> SPO2 </label>
+                                    <input type="text" name="spo2" rows="3" class="form-control" placeholder=" SPO2 ">
                                 </div>
-                                <div class="form-group">
-                                    <input type="text" name="fasting_blood_sugar" rows="3" class="form-control" placeholder="Enter Fasting Blood Sugar"></textarea>
+                                <div class="form-group col-md-4 col-sm-3">
+                                    <label for="fasting_blood_sugar">  Fasting BS. </label>
+                                    <input type="text" name="fasting_blood_sugar" rows="3" class="form-control" placeholder=" Fasting Blood Sugar">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-12 d-flex">
-                                <div class="form-group">
-                                    <input type="text" name="random_blood_sugar" rows="3" class="form-control" placeholder="Enter Random Blood Sugar"></textarea>
+                            <div class="d-flex">
+                                <div class="form-group col-md-4 col-sm-3">
+                                    <label for="random_blood_sugar"> Random BS. </label>
+                                    <input type="text" name="random_blood_sugar" rows="3" class="form-control" placeholder=" Random Blood Sugar">
                                 </div>
-                                <div class="form-group">
-                                    <input type="text" name="hbaic" rows="3" class="form-control" placeholder="Enter HbA1c"></textarea>
+                                <div class="form-group col-md-4 col-sm-3">
+                                   <label for="hbaic"> HbA1c </label>
+                                    <input type="text" name="hbaic" rows="3" class="form-control" placeholder=" HbA1c">
                                 </div>
-                                <div class="form-group">
-                                    <input type="text" name="creatinine" rows="3" class="form-control" placeholder="Enter Creatinine"></textarea>
+                                <div class="form-group col-md-4 col-sm-3">
+                                    <label for="creatinine"> Creatinine </label>
+                                    <input type="text" name="creatinine" rows="3" class="form-control" placeholder=" Creatinine">
                                 </div>
-                                <div class="form-group">
-                                    <input type="text" name="urine_macr" rows="3" class="form-control" placeholder="Enter Urine MACR"></textarea>
+                                <div class="form-group col-md-4 col-sm-3">
+                                    <label for="urine_macr"> Urine MACR</label>
+                                    <input type="text" name="urine_macr" rows="3" class="form-control" placeholder=" Urine MACR">
                                 </div>
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col-12 d-flex">
+                            <div class="d-flex">
 
-                                <div class="form-group">
-                                    <input type="text" name="bun" rows="3" class="form-control" placeholder="Enter BUN"></textarea>
+                                <div class="form-group col-md-4 col-sm-3">
+                                    <label for="bun"> BUN </label>
+                                    <input type="text" name="bun" rows="3" class="form-control" placeholder=" BUN">
                                 </div>
-                                <div class="form-group">
-                                    <input type="text" name="vit_d3" rows="3" class="form-control" placeholder="Enter Vit D3"></textarea>
+                                <div class="form-group col-md-4 col-sm-3">
+                                    <label for="vit_d3"> Vit D3 </label>
+                                    <input type="text" name="vit_d3" rows="3" class="form-control" placeholder=" Vit D3">
                                 </div>
-                                <div class="form-group">
-                                    <input type="text" name="vit_b12" rows="3" class="form-control" placeholder="Enter  Vit B12"></textarea>
+                                <div class="form-group col-md-4 col-sm-3">
+                                    <label for="vit_b12"> Vit B12 </label>
+                                    <input type="text" name="vit_b12" rows="3" class="form-control" placeholder="  Vit B12">
                                 </div>
-                                <div class="form-group">
-                                    <input type="text" name="uric_acid" rows="3" class="form-control" placeholder="Enter Uric acid"></textarea>
+                                <div class="form-group col-md-4 col-sm-3">
+                                    <label for="uric_acid"> Uric acid </label>
+                                    <input type="text" name="uric_acid" rows="3" class="form-control" placeholder=" Uric acid">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-12 d-flex">
-                                <div class="form-group">
-                                    <input name="sgot" type="text" rows="3" class="form-control" placeholder="Enter SGOT"></textarea>
+                            <div class="col-md-4 d-flex">
+                                <div class="form-group col-sm-6">
+                                    <label for="sgot"> SGOT </label>
+                                    <input name="sgot" type="text" rows="3" class="form-control" placeholder="SGOT">
                                 </div>
-                                <div class="form-group">
-                                    <input type="text" name="sgpt" rows="3" class="form-control" placeholder="Enter SGPT"></textarea>
+                                <div class="form-group col-sm-6">
+                                    <label for="sgpt"> SGPT </label>
+                                    <input type="text" name="sgpt" rows="3" class="form-control" placeholder="SGPT">
                                 </div>
                             </div>
                         </div>
@@ -311,7 +325,7 @@ $data = mysqli_fetch_assoc( mysqli_query($db_connect,$select_query));
                                 <?php
                                if(isset($data['spo2'])){
                                 ?>
-                                <td><?php echo $data['spo2'] ?></td>
+                                <td><?php echo $data['spo2'].""."%" ?></td>
                                 <?php
                                };
                                 ?>
