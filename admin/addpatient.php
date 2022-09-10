@@ -49,28 +49,7 @@ if (isset($_POST['submit'])) {
         <div class="col-md-12">
             <div class="widget-area-2 proclinic-box-shadow">
                 <h3 class="widget-title">Add Patient </h3>
-
-                <!-- <?php
-                        if (isset($_SESSION['error'])) {
-                        ?>
-                    <div class="alert alert-danger">
-                        <?php echo $_SESSION['error'] ?>
-                    </div>
-                <?php
-                        }
-                ?> -->
-<!-- 
-                <?php
-                if (isset($_SESSION['success'])) {
-                ?>
-                    <div class="alert alert-success">
-                        <?php echo $_SESSION['success'] ?>
-                    </div>
-                <?php
-                };
-                ?> -->
-
-
+              
                 <form action="addpatient_post.php" method="POST">
 
                     <input type="hidden" name="doctor_id" value="<?php echo $_SESSION['doc_id'] ?>">
