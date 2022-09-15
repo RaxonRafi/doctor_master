@@ -28,9 +28,12 @@
 			<script src="js/custom.js"></script>
 			<!-- select2 -->
 			<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-			<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 			<!-- ajax cdn -->
 			<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+
+			<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>  -->
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
 			<script>
 				$(document).ready(function() {
@@ -46,7 +49,7 @@
 			</script>
 
 			<!--city search script -->
-			<script>
+			<!-- <script>
 				$(document).ready(function() {
 					$('#searchcity').keyup(function() {
 						const input = $(this).val();
@@ -76,7 +79,7 @@
 						$('#result').html('');
 					})
 				});
-			</script>
+			</script> -->
 
 			<!--city search script -->
 
@@ -114,6 +117,52 @@
 			</script>
 
 			<!--Medicine search script -->
+
+
+			<!-- for input city -->
+
+ 
+<script type="text/javascript">
+  $(function() {
+
+     $( "#residing_in" ).autocomplete({
+        source: function( request, response ) {
+            //console.log('sssssxx');
+        // Fetch data
+            $.ajax({
+                    url: "searchcity.php",
+                    type: 'post',
+                    dataType: "json",
+                data: {
+                     search: request.term
+					//search: request.value
+                },
+                success: function( data ) {
+                    //console.log('111 sssssxx');
+                    //console.log(data);
+                    response(data);
+				   
+                }
+            });
+        },
+        select: function (event, ui) {
+            // Set selection
+            $('#residing_in').val(ui.item.label); // display the selected text
+            $('#residing_in_id').val(ui.item.value); // save selected id to input
+            return false;
+        },
+        focus: function(event, ui){
+            $( "#residing_in" ).val( ui.item.label );
+            //$( "#selectuser_id" ).val( ui.item.value );
+            return false;
+        },
+    });
+  });
+
+  
+</script>  
+
+	 
 
 			</body>
 

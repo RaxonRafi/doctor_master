@@ -2,7 +2,7 @@
 $patient_details = true;
 require_once "inc/header.php";
 
-$_SESSION['patient_name'] = $_GET['name'];
+//$_SESSION['patient_name'] = $_GET['name'];
 $_SESSION['patient_id'] = $_GET['id'];
 
 ?>
@@ -35,7 +35,9 @@ $_SESSION['patient_id'] = $_GET['id'];
         <!-- Widget Item -->
         <div class="col-md-12">
             <div class="widget-area-2 proclinic-box-shadow">
-                <h3 class="widget-title">Patient Details</h3>
+               <!-- // <h3 class="widget-title">Patient Details</h3> -->
+                <a class="btn btn-success" href="medicines.php?id=<?php echo $_SESSION['patient_id']?>" type="button" >Go to Medicines</a>
+             
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <tbody>

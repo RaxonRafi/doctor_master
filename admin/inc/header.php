@@ -29,6 +29,17 @@ session_start();
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
     <script src="js/modernizr.min.js"></script>
+
+    <!-- autocomplete -->
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+
+  <!-- <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> -->
 </head>
 
 <body>
@@ -129,7 +140,10 @@ session_start();
                             <li class="nav-item dropdown <?= (isset($dashboard)) ? 'active' : '' ?> ">
                                 <a class="nav-link dropdown-toggle" href="dashboard.php" role="button" aria-haspopup="true" aria-expanded="false"><span class="ti-home"></span> Dashboard</a>
                             </li>
-                            <li class="nav-item dropdown  <?= (isset($patient_details)) ? 'active' : '' ?> ">
+                            <li class="nav-item dropdown <?= (isset($add_patients)) ? 'active' : '' ?> ">
+                                <a class="nav-link dropdown-toggle" href="addpatient.php" role="button" aria-haspopup="true" aria-expanded="false"><span class="ti-ink-pen"></span> Add Patient</a>
+                            </li>
+                            <!-- <li class="nav-item dropdown  <?= (isset($patient_details)) ? 'active' : '' ?> ">
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="ti-wheelchair"></span> Patients</a>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="addpatient.php">Add Patient</a>
@@ -137,19 +151,12 @@ session_start();
                                     <a class="dropdown-item" href="patient_details.php">Patient Details</a>
 
                                 </div>
-                            </li>
+                            </li> -->
 
-                            <li class="nav-item dropdown  <?= (isset($medicine)) ? 'active' : '' ?>">
+                            <!-- <li class="nav-item dropdown  <?= (isset($medicine)) ? 'active' : '' ?>">
                                 <a class="nav-link dropdown-toggle" href="medicines.php" role="button" aria-haspopup="true" aria-expanded="false"><span class="ti-pencil"></span> Medicines</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="ti-money"></span> Payments</a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="add-payment.html">Add Payment</a>
-                                    <a class="dropdown-item" href="payments.html">All Payments</a>
-                                    <a class="dropdown-item" href="about-payment.html">Payment Invoice</a>
-                                </div>
-                            </li>
+                            </li> -->
+                       
 
                         </ul>
                     </div>

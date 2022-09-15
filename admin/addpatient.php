@@ -1,5 +1,5 @@
 <?php
-$patient_details = true;
+$add_patients = true;
 require_once "inc/header.php";
 
 $result = " ";
@@ -71,11 +71,19 @@ if (isset($_POST['submit'])) {
                             <label for="phone">Phone</label>
                             <input type="phone" required  name="mobile" placeholder="Phone" class="form-control" id="phone">
                         </div>
-                        <div class="form-group col-md-6">
+
+                        <div class="col-md-6 form-group" id="residing_in_ids">
+                            <label for="residing_in">City <small>(select from lookup)</small></label> <span class="span_error"  id="error_BirthDate"></span>
+                            <input type="text"class="form-control form_input" autocomplete="off" name="city" id="residing_in" placeholder="Residing in">                        
+                            <input type="hidden" name="residing_in_id" id="residing_in_id" value="0"> 
+                     
+                        </div>
+
+                        <!-- <div class="form-group col-md-6">
                             <label for="phone">City</label>
                             <input type="search" name="city" required placeholder="Enter Your City" class="form-control" id="searchcity">
-                            <span id="result"></span>
-                        </div>
+                            <span id="residing_in"></span>
+                        </div> -->
                         <div class="form-group col-md-6">
                             <label for="phone">Address</label>
                             <textarea type="text" required name="address" placeholder="Enter Your Address" class="form-control" id="phone"></textarea>

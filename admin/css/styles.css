@@ -159,6 +159,12 @@ a:focus {
 }
 
 
+/* #ui-id-2.ui-autocomplete.ui-front 
+{
+  z-index: 99999 !important;
+  display: block !important;
+} */
+
 form .row>[class^=col] {
 	padding-top: .5rem !important;
 	padding-bottom: .5rem !important;

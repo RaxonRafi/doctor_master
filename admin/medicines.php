@@ -5,14 +5,35 @@ require_once "inc/header.php";
 require_once "db/db.php";
 $doc_id = $_SESSION['doc_id'];
 ?>
+<!-- Page Title -->
+<div class="container-fluid mt-0">
+    <div class="row breadcrumb-bar">
+        <div class="col-md-6">
+            <h3 class="block-title">Medicines</h3>
+        </div>
+        <!-- <div class="col-md-6">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="index.html">
+                        <span class="ti-home"></span>
+                    </a>
+                </li>
+                <li class="breadcrumb-item">Patients</li>
+                <li class="breadcrumb-item active">Patient Details</li>
+            </ol>
+        </div> -->
+    </div>
+</div>
 <div class="container-fluid">
 
     <div class="row">
-
+    
         <!-- Widget Item -->
         <div class="col-md-12">
+       
             <div class="widget-area-2 proclinic-box-shadow">
-                <h3 class="widget-title">Add Medicines</h3>
+            <a class="btn btn-success" href="visit_notes.php?id=<?php echo $_SESSION['patient_id']?>" type="button" >Go to Visit Notes</a>
+               <!-- // <h3 class="widget-title">Add Medicines</h3> -->
 
 
                 <div class="row">

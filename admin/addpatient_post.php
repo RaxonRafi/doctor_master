@@ -6,6 +6,7 @@ session_start();
   $arr['mobile'] = $_POST['mobile'];
   $arr['gender'] = $_POST['gender'];
   $arr['email'] = $_POST['email'];
+  $arr['profile_city'] = $_POST['residing_in_id'];
   $arr['city'] = $_POST['city'];
   $arr['address'] = $_POST['address'];
   $arr['doctor_id']= $_POST['doctor_id'];
@@ -19,18 +20,19 @@ session_start();
   $result = curl_exec($ch);
   curl_close($ch);
   $result_after_decode = json_decode($result);
-  $data = $result_after_decode->errorCode;
+  $data = $result_after_decode->data->profileId;
 
- 
-if($data != null){
+ header("location:patient_details.php?id=".$data);
+// if($data != ){
   
-  $_SESSION['success'] = "Patient added successfully !";
-  header("location:addpatient.php");
+//   $_SESSION['success'] = "Patient added successfully !";
 
-}else{
 
-  $_SESSION['error'] = "somthing is missing !";
-  header("location:addpatient.php");
-}
+// }else{
+
+//   $_SESSION['error'] = "somthing is missing !";
+//   header("location:addpatient.php");
+// }
+
 
 ?>
