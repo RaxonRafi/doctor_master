@@ -6,8 +6,8 @@ session_start();
   $arr['mobile'] = $_POST['mobile'];
   $arr['gender'] = $_POST['gender'];
   $arr['email'] = $_POST['email'];
-  $arr['profile_city'] = $_POST['residing_in_id'];
-  $arr['city'] = $_POST['city'];
+  //$arr['profile_city'] = $_POST['residing_in_id'];
+  $arr['city'] = $_POST['residing_in_id'];
   $arr['address'] = $_POST['address'];
   $arr['doctor_id']= $_POST['doctor_id'];
   json_encode($arr);
@@ -22,7 +22,11 @@ session_start();
   $result_after_decode = json_decode($result);
   $data = $result_after_decode->data->profileId;
 
- header("location:patient_details.php?id=".$data);
+
+  print_r($result);
+
+
+  // header("location:patient_details.php?id=".$data);
 // if($data != ){
   
 //   $_SESSION['success'] = "Patient added successfully !";

@@ -48,6 +48,7 @@ $procedures = $result_after_decode->data->Procedure;
         <!-- Widget Item -->
         <div class="col-md-12">
             <div class="widget-area-2 proclinic-box-shadow">
+            <a class="btn btn-success" href="medicines.php?id=<?php echo $_SESSION['patient_id']?>" type="button" >Go to Medicines</a>
                 <!-- <h3 class="widget-title">Visit Notes</h3> -->
                 <form method="POST" enctype="multipart/form-data" action="visitNotes_post.php">
 
@@ -153,6 +154,50 @@ $procedures = $result_after_decode->data->Procedure;
                                 </div>
                             </div>
                         </div>
+                        <div class="form-group ">
+                            <label>Family History</label>
+
+                            <div class="form-group col-md-9  d-flex">
+
+                                <select name="father_Condition" class="form-control" id="exampleFormControlSelect1">
+                                    <option>--Father Condition--</option>
+                                    <option value="Type 2 Diabetes" > Type 2 Diabetes</option>
+                                    <option value="Type 1 Diabetes"> Type 1 Diabetes</option>
+                                    <option value="High Blood pressure">High Blood pressure</option>
+                                    <option value="Eye issue"> Eye issue</option>
+                                    <option value="Kidney disease">Kidney disease</option>
+                                    <option value="Cholesterol issue">Cholesterol issue</option>
+                                </select>
+                                <select  name="mother_Condition"  class="form-control" id="exampleFormControlSelect1">
+                                    <option>--Mother Condition--</option>
+                                    <option value="Type 2 Diabetes" > Type 2 Diabetes</option>
+                                    <option value="Type 1 Diabetes"> Type 1 Diabetes</option>
+                                    <option value="High Blood pressure">High Blood pressure</option>
+                                    <option value="Eye issue"> Eye issue</option>
+                                    <option value="Kidney disease">Kidney disease</option>
+                                    <option value="Cholesterol issue">Cholesterol issue</option>
+                                </select>
+                                <select name="sister_Condition"  class="form-control" id="exampleFormControlSelect1">
+                                    <option>--Sister Condition--</option>
+                                    <option value="Type 2 Diabetes" > Type 2 Diabetes</option>
+                                    <option value="Type 1 Diabetes"> Type 1 Diabetes</option>
+                                    <option value="High Blood pressure">High Blood pressure</option>
+                                    <option value="Eye issue"> Eye issue</option>
+                                    <option value="Kidney disease">Kidney disease</option>
+                                    <option value="Cholesterol issue">Cholesterol issue</option>
+                                </select>
+                                <select name="brother_Condition" class="form-control" id="exampleFormControlSelect1">
+                                    <option>--Brother Condition--</option>
+                                    <option value="Type 2 Diabetes" > Type 2 Diabetes</option>
+                                    <option value="Type 1 Diabetes"> Type 1 Diabetes</option>
+                                    <option value="High Blood pressure">High Blood pressure</option>
+                                    <option value="Eye issue"> Eye issue</option>
+                                    <option value="Kidney disease">Kidney disease</option>
+                                    <option value="Cholesterol issue">Cholesterol issue</option>
+                                </select>
+
+                            </div>
+                        </div>
 
                         <label>Provisional diagnosis</label>
 
@@ -252,15 +297,15 @@ $data = mysqli_fetch_assoc( mysqli_query($db_connect,$select_query));
 
 ?>
 
-
-
 <div class="container-fluid">
     <div class="row">
         <!-- Widget Item -->
         <div class="col-md-12">
             <div class="widget-area-2 proclinic-box-shadow">
                 <h3 class="widget-title">Visit Notes</h3>
+
                 <a type="button" target="_black" class="btn btn-info float-right" href="pdf/index.php?id=<?php echo $_SESSION['patient_id']  ?>">Preview Prescription</a>
+                <a type="button" target="_black" class="btn btn-success mr-2 float-right" href="#"> <span class="ti-pencil-alt" ></span> Edit</a>
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <tbody>
@@ -296,10 +341,10 @@ $data = mysqli_fetch_assoc( mysqli_query($db_connect,$select_query));
                                };
                                 ?>
                             </tr>
-                            <tr>
+                            <!-- <tr>
                                 <td><strong>Health Parameters</strong> </td>
 
-                            </tr>
+                            </tr> -->
                             <tr>
                                 <td><strong>Blood Pressure</strong></td>
                                 <?php
@@ -436,6 +481,46 @@ $data = mysqli_fetch_assoc( mysqli_query($db_connect,$select_query));
                                if(isset($data['sgpt'])){
                                 ?>
                                 <td><?php echo $data['sgpt'] ?></td>
+                                <?php
+                               };
+                                ?>
+                            </tr>
+                            <tr>
+                                <td><strong>Father Condition</strong></td>
+                                <?php
+                               if(isset($data['father_condition'])){
+                                ?>
+                                <td><?php echo $data['father_condition'] ?></td>
+                                <?php
+                               };
+                                ?>
+                            </tr>
+                            <tr>
+                            <td><strong>Mother Condition </strong></td>
+                                <?php
+                               if(isset($data['mother_condition'])){
+                                ?>
+                                <td><?php echo $data['mother_condition'] ?></td>
+                                <?php
+                               };
+                                ?>
+                            </tr>
+                            <tr>
+                            <td><strong>sister Condition</strong></td>
+                                <?php
+                               if(isset($data['sister_condition'])){
+                                ?>
+                                <td><?php echo $data['sister_condition'] ?></td>
+                                <?php
+                               };
+                                ?>
+                            </tr>
+                            <tr>
+                               <td><strong>Brother Condition</strong></td>
+                                <?php
+                               if(isset($data['brother_condition'])){
+                                ?>
+                                <td><?php echo $data['brother_condition'] ?></td>
                                 <?php
                                };
                                 ?>

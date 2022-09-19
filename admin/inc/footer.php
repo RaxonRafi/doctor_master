@@ -153,6 +153,7 @@
         },
         focus: function(event, ui){
             $( "#residing_in" ).val( ui.item.label );
+			//$('#residing_in_id').val(ui.item.value);
             //$( "#selectuser_id" ).val( ui.item.value );
             return false;
         },

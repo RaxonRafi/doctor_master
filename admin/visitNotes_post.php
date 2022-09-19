@@ -29,6 +29,10 @@ session_start();
     $uric_acid = $_POST['uric_acid'];
     $sgot =$_POST['sgot'];
     $sgpt = $_POST['sgpt'];
+    $father_Condition = $_POST['father_Condition']; 
+    $mother_Condition = $_POST['mother_Condition'];
+    $sister_Condition = $_POST['sister_Condition'];
+    $brother_Condition = $_POST['brother_Condition'];
     $provisional_diagnosis_implode =$_POST['provisional_diagnosis'];
     $provisional_diagnosis = implode(";",$provisional_diagnosis_implode);
     $investigation_implode = $_POST['investigation'];
@@ -42,10 +46,9 @@ session_start();
     $prescription = implode(";",$prescription_implode);
  };
 
- 
 
- $sql = "INSERT INTO visit_notes(doc_id, patient_id, blood_test_report,report_name, examination, blood_pressure, blood_pulse, spo2,fasting_blood_sugar, random_blood_sugar, hbaic, creatinine, urine_macr, bun, vit_d3, vit_b12,uric_acid, sgot, sgpt, provisional_diagnosis, investigation, referral, advise_for_procedure, repeat_visit, repeat_visit_date,prescription) VALUES ('$doc_id',' $patient_id ','$new_name','$report_name ',' $examination','$blood_pressure',' $blood_pulse',' $spo2','$fasting_blood_sugar','$random_blood_sugar',' $hbaic',' $creatinine','$urine_macr','$bun ','$vit_d3',' $vit_b12',' $uric_acid','$sgot','$sgpt','$provisional_diagnosis','$investigation','$referral','$advise_for_procedure','$repeat_visit ',' $repeat_visit_date','$prescription')";
 
+ $sql = "INSERT INTO visit_notes(doc_id, patient_id, blood_test_report,report_name, examination, blood_pressure, blood_pulse, spo2,fasting_blood_sugar, random_blood_sugar, hbaic, creatinine, urine_macr, bun, vit_d3, vit_b12,uric_acid, sgot, sgpt,father_condition,mother_condition,brother_condition,sister_condition, provisional_diagnosis, investigation, referral, advise_for_procedure, repeat_visit, repeat_visit_date,prescription) VALUES ('$doc_id',' $patient_id ','$new_name','$report_name ',' $examination','$blood_pressure',' $blood_pulse',' $spo2','$fasting_blood_sugar','$random_blood_sugar',' $hbaic',' $creatinine','$urine_macr','$bun ','$vit_d3',' $vit_b12',' $uric_acid','$sgot','$sgpt','$father_Condition','$mother_Condition', '$brother_Condition','$sister_Condition','$provisional_diagnosis','$investigation','$referral','$advise_for_procedure','$repeat_visit ',' $repeat_visit_date','$prescription')";
  mysqli_query($db_connect,$sql);
  header("location:visit_notes.php");
 

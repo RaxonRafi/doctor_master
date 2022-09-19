@@ -4,6 +4,7 @@ $medicine = true;
 require_once "inc/header.php";
 require_once "db/db.php";
 $doc_id = $_SESSION['doc_id'];
+//print_r($_SESSION);
 ?>
 <!-- Page Title -->
 <div class="container-fluid mt-0">
@@ -32,7 +33,7 @@ $doc_id = $_SESSION['doc_id'];
         <div class="col-md-12">
        
             <div class="widget-area-2 proclinic-box-shadow">
-            <a class="btn btn-success" href="visit_notes.php?id=<?php echo $_SESSION['patient_id']?>" type="button" >Go to Visit Notes</a>
+              <a class="btn btn-success" href="visit_notes.php?id=<?php echo $_GET['id'] ?>" type="button" >return to visit notes</a>
                <!-- // <h3 class="widget-title">Add Medicines</h3> -->
 
 
