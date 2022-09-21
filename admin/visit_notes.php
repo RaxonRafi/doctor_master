@@ -304,7 +304,7 @@ $data = mysqli_fetch_assoc( mysqli_query($db_connect,$select_query));
             <div class="widget-area-2 proclinic-box-shadow">
                 <h3 class="widget-title">Visit Notes</h3>
 
-                <a type="button" target="_black" class="btn btn-info float-right" href="pdf/index.php?id=<?php echo $_SESSION['patient_id']  ?>">Preview Prescription</a>
+               
                 <a type="button"class="btn btn-success mr-2 float-right" href="visitnotes_update.php?id=<?php echo $_SESSION['patient_id'] ?>"> <span class="ti-pencil-alt" ></span> Edit</a>
                 <div class="table-responsive">
                     <table class="table table-bordered">

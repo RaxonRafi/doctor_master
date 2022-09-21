@@ -33,8 +33,9 @@ $doc_id = $_SESSION['doc_id'];
         <div class="col-md-12">
        
             <div class="widget-area-2 proclinic-box-shadow">
-              <a class="btn btn-success" href="visit_notes.php?id=<?php echo $_GET['id'] ?>" type="button" >return to visit notes</a>
+              <!-- <a class="btn btn-success" href="visit_notes.php?id=<?php echo $_GET['id'] ?>" type="button" >return to visit notes</a> -->
                <!-- // <h3 class="widget-title">Add Medicines</h3> -->
+               <a type="button" target="_black" class="btn btn-info" href="pdf/index.php?id=<?php echo $_SESSION['patient_id'] ?>">Preview Prescription</a>
 
 
                 <div class="row">
