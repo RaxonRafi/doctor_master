@@ -3,9 +3,9 @@ Color : GREEN
 *==================*/
 
 .proclinic-bg {
-	background: #3CB371;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #008761, #3CB371);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #008761, #3CB371); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: #ff5501;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #ff5501, #ff5501);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #ff5501, #ff5501); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .proclinic-text-color{
 	color: #3CB371;

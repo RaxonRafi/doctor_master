@@ -15,6 +15,7 @@ $procedures = $result_after_decode->data->Procedure;
 
 
 
+
 ?>
 <!-- Breadcrumb -->
 <!-- Page Title -->
@@ -50,28 +51,109 @@ $procedures = $result_after_decode->data->Procedure;
             <div class="widget-area-2 proclinic-box-shadow">
             <a class="btn btn-success" href="medicines.php?id=<?php echo $_SESSION['patient_id']?>" type="button" >Go to Medicines</a>
                 <!-- <h3 class="widget-title">Visit Notes</h3> -->
+                <form action="report_post.php" method="post" enctype="multipart/form-data" >
+                <input name="doc_id" value="<?php echo $_SESSION['doc_id'] ?>" type="hidden">
+                
+                <input name="patient_id" value="<?php echo $_SESSION['patient_id'] ?>" type="hidden">
+
+               
+
+                <div class="row">
+                    <div class="form-group mt-5 col-md-5 blood_test_report">
+                        <!-- <div class="form-group mt-5"> -->
+                            <label for="exampleInputEmail1">Blood Test Report</label>
+                            <input type="file" name="blood_test_report[]" multiple class="form-control">
+
+                        <!-- </div> -->
+
+                    </div>
+                    <div class="form-group col-md-5 mt-5 report_name">
+                        <!-- <div class="form-group mt-5"> -->
+                            <label for="exampleInputEmail1">Report Name</label>
+                            <input rows="3" type="text" name="report_name" class="form-control" placeholder="Report Name">
+
+                        <!-- </div> -->
+                    </div>
+                    <div class="form-group float-left col-md-2 submit-btn"style="margin-top:82px ;">
+                        <!-- <div class="form-group float-left "style="margin-top:82px ;" > -->
+                           <button target="_blank" name="submit" type="submit" class="btn btn-info mt-10">Submit</button>
+
+                        <!-- </div> -->
+
+                 
+
+                    </div>
+
+                    <?php
+
+
+                        $id = $_SESSION['patient_id'];
+                        $select_query = "SELECT * FROM visit_notes WHERE patient_id = $id";
+                        $data = mysqli_fetch_assoc( mysqli_query($db_connect,$select_query));
+                        $sql = "SELECT * FROM reports WHERE patient_id = $id";
+                        $result =  mysqli_query($db_connect,$sql);
+
+                        ?>
+
+                    <div class="col-md-8">
+                    <div class="table-responsive">
+                            <table class="table table-bordered text-center">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Sl NO.</th>
+                                        <th scope="col">Report Name</th>
+                                        <th scope="col">Reports</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                <?php
+                                $serial = 1;
+                                while($report = mysqli_fetch_assoc($result)){
+                                  
+
+                                ?>
+                                    <tr >
+                                      <td scope="row"><?php echo $serial++ ?></td>
+                                        <td scope="row"><?php echo $report['report_name'] ?></td>
+                                        <td><?php echo $report['report'] ?></td>
+                                        <td>
+                                            <a type="button" download class="btn btn-info"  href="../admin/reports/<?php echo $report['report']?>"><span class="ti-download"></span></a>
+                                            <a type="button" class="btn btn-danger"  href="delete_report.php?id=<?php echo $report['id'] ?>&report_name=<?php echo $report['report']?>">✕</a>
+
+                                        </td>
+
+                                   
+                                    </tr>
+                                    <?php
+
+                                    };
+                                    ?>
+                          
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+
+
+                   
+                  
+                     
+       
+                </div>
+               
+                </form>
                 <form method="POST" enctype="multipart/form-data" action="visitNotes_post.php">
 
                     <input name="doc_id" value="<?php echo $_SESSION['doc_id'] ?>" type="hidden">
                 
                     <input name="patient_id" value="<?php echo $_SESSION['patient_id'] ?>" type="hidden">
 
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="form-group mt-5">
-                                <label for="exampleInputEmail1">Blood Test Report</label>
-                                <input rows="3" type="file" name="blood_test_report" class="form-control">
+                    <input name="patient_name" type="hidden" value="<?php echo $_SESSION['patient_name'] ?>">
 
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group mt-5">
-                                <label for="exampleInputEmail1">Report Name</label>
-                                <input rows="3" type="text" name="report_name" style="width:50%;" class="form-control" placeholder="Report Name">
-
-                            </div>
-                        </div>
-                    </div>
+ 
 
                     <div class="form-group mt-5">
                         <label for="exampleInputEmail1">Examination</label>
@@ -80,84 +162,73 @@ $procedures = $result_after_decode->data->Procedure;
                     </div>
                     <div class="form-group">
                         <label>Health Parameters</label>
-                        <div class="row">
-                            <div class="d-flex">
-                                <div class="form-group col-md-4 col-sm-3">
+                          <!-- <div class="row"> -->
+                            <div class="row">
+                                <div class="form-group col-md-3 col-sm-12">
                                 <label for="blood_pressure" > BP </label>
                                 <input name="blood_pressure" id="blood_pressure" type="text" rows="3" class="form-control" placeholder=" BP">
                                 </div>
-                                <div class="form-group col-md-4 col-sm-3">
+                                <div class="form-group col-md-3 col-sm-12">
                                 <label for="blood_pulse"> Pulse </label>
                                     <input type="text" name="blood_pulse" rows="3" class="form-control" placeholder="Pulse ">
                                 </div>
-                                <div class="form-group col-md-4 col-sm-3">
+                                <div class="form-group col-md-3 col-sm-12">
                                     <label for="spo2"> SPO2 </label>
                                     <input type="text" name="spo2" rows="3" class="form-control" placeholder=" SPO2 ">
                                 </div>
-                                <div class="form-group col-md-4 col-sm-3">
+                                <div class="form-group col-md-3 col-sm-12">
                                     <label for="fasting_blood_sugar">  Fasting BS. </label>
                                     <input type="text" name="fasting_blood_sugar" rows="3" class="form-control" placeholder=" Fasting Blood Sugar">
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="d-flex">
-                                <div class="form-group col-md-4 col-sm-3">
+                                                                       
+                                <div class="form-group col-md-3 col-sm-12">
                                     <label for="random_blood_sugar"> Random BS. </label>
                                     <input type="text" name="random_blood_sugar" rows="3" class="form-control" placeholder=" Random Blood Sugar">
                                 </div>
-                                <div class="form-group col-md-4 col-sm-3">
+                                <div class="form-group col-md-3 col-sm-12">
                                    <label for="hbaic"> HbA1c </label>
                                     <input type="text" name="hbaic" rows="3" class="form-control" placeholder=" HbA1c">
                                 </div>
-                                <div class="form-group col-md-4 col-sm-3">
+                                <div class="form-group  col-md-3 col-sm-12">
                                     <label for="creatinine"> Creatinine </label>
                                     <input type="text" name="creatinine" rows="3" class="form-control" placeholder=" Creatinine">
                                 </div>
-                                <div class="form-group col-md-4 col-sm-3">
+                                <div class="form-group  col-md-3 col-sm-12">
                                     <label for="urine_macr"> Urine MACR</label>
                                     <input type="text" name="urine_macr" rows="3" class="form-control" placeholder=" Urine MACR">
                                 </div>
-                            </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="d-flex">
-
-                                <div class="form-group col-md-4 col-sm-3">
+                                <div class="form-group col-md-3 col-sm-12">
                                     <label for="bun"> BUN </label>
                                     <input type="text" name="bun" rows="3" class="form-control" placeholder=" BUN">
                                 </div>
-                                <div class="form-group col-md-4 col-sm-3">
+                                <div class="form-group  col-md-3 col-sm-12">
                                     <label for="vit_d3"> Vit D3 </label>
                                     <input type="text" name="vit_d3" rows="3" class="form-control" placeholder=" Vit D3">
                                 </div>
-                                <div class="form-group col-md-4 col-sm-3">
+                                <div class="form-group  col-md-3 col-sm-12">
                                     <label for="vit_b12"> Vit B12 </label>
                                     <input type="text" name="vit_b12" rows="3" class="form-control" placeholder="  Vit B12">
                                 </div>
-                                <div class="form-group col-md-4 col-sm-3">
+                                <div class="form-group col-md-3 col-sm-12">
                                     <label for="uric_acid"> Uric acid </label>
                                     <input type="text" name="uric_acid" rows="3" class="form-control" placeholder=" Uric acid">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4 d-flex">
-                                <div class="form-group col-sm-6">
+                                </div>                       
+                    
+                                <div class="form-group  col-md-3 col-sm-12">
                                     <label for="sgot"> SGOT </label>
                                     <input name="sgot" type="text" rows="3" class="form-control" placeholder="SGOT">
                                 </div>
-                                <div class="form-group col-sm-6">
+                                <div class="form-group col-md-3 col-sm-12">
                                     <label for="sgpt"> SGPT </label>
                                     <input type="text" name="sgpt" rows="3" class="form-control" placeholder="SGPT">
                                 </div>
-                            </div>
+                      
                         </div>
-                        <div class="form-group ">
+                        <div class="form-group">
                             <label>Family History</label>
-
-                            <div class="form-group col-md-9  d-flex">
+                            <div class="row">
+                            <div class="form-group col-md-3 col-sm-12">
 
                                 <select name="father_Condition" class="form-control" id="exampleFormControlSelect1">
                                     <option>--Father Condition--</option>
@@ -168,6 +239,9 @@ $procedures = $result_after_decode->data->Procedure;
                                     <option value="Kidney disease">Kidney disease</option>
                                     <option value="Cholesterol issue">Cholesterol issue</option>
                                 </select>
+
+                                </div>
+                                <div class="form-group col-md-3 col-sm-12">
                                 <select  name="mother_Condition"  class="form-control" id="exampleFormControlSelect1">
                                     <option>--Mother Condition--</option>
                                     <option value="Type 2 Diabetes" > Type 2 Diabetes</option>
@@ -177,6 +251,11 @@ $procedures = $result_after_decode->data->Procedure;
                                     <option value="Kidney disease">Kidney disease</option>
                                     <option value="Cholesterol issue">Cholesterol issue</option>
                                 </select>
+
+                                </div>
+
+                                <div class="form-group col-md-3 col-sm-12">
+
                                 <select name="sister_Condition"  class="form-control" id="exampleFormControlSelect1">
                                     <option>--Sister Condition--</option>
                                     <option value="Type 2 Diabetes" > Type 2 Diabetes</option>
@@ -186,6 +265,10 @@ $procedures = $result_after_decode->data->Procedure;
                                     <option value="Kidney disease">Kidney disease</option>
                                     <option value="Cholesterol issue">Cholesterol issue</option>
                                 </select>
+                                </div>
+
+                                <div class="form-group col-md-3 col-sm-12">
+
                                 <select name="brother_Condition" class="form-control" id="exampleFormControlSelect1">
                                     <option>--Brother Condition--</option>
                                     <option value="Type 2 Diabetes" > Type 2 Diabetes</option>
@@ -195,6 +278,11 @@ $procedures = $result_after_decode->data->Procedure;
                                     <option value="Kidney disease">Kidney disease</option>
                                     <option value="Cholesterol issue">Cholesterol issue</option>
                                 </select>
+                                </div>
+
+                            </div>
+
+                           
 
                             </div>
                         </div>
@@ -244,18 +332,23 @@ $procedures = $result_after_decode->data->Procedure;
                             <input name="advise_for_procedure" type="text" style="width: 75%;" class="form-control form-control-sm" placeholder="" aria-controls="tableId">
                         </div>
 
+                        <label>Repeat visit date</label>
                         <div class="row">
-                            <div class="col-12">
-                                <label>Repeat visit date</label>
-                                <div class="form-group  d-flex">
+                            <!-- <div class="col-12"> -->
+                     
+                                <div class="form-group col-md-4 col-sm-12">
                                     <select name="repeat_visit" style="width: 60%;" col="3" class="form-control" id="exampleFormControlSelect1">
                                         <option>--Select day or month--</option>
                                         <option value="Day">Day</option>
                                         <option value="Month">Month</option>
                                     </select>
-                                    <input name="repeat_visit_date" placeholder="enter date" type="number">
+                                   
                                 </div>
-                            </div>
+
+                                <div class="form-group col-md-4 col-sm-12">
+                                <input name="repeat_visit_date" placeholder="enter date" type="number">
+                                </div>
+                            <!-- </div> -->
                         </div>
                         <label>Prescription</label>
                         <div class="form-check">
@@ -277,7 +370,7 @@ $procedures = $result_after_decode->data->Procedure;
                             </label>
                         </div>
 
-                        <button target="_blank" name="submit" type="submit" class="btn btn-primary mt-3">Submit</button>
+                        <button target="_blank" name="submit" type="submit" class="btn btn-info mt-3">Submit</button>
                         </from>
 
 
@@ -290,12 +383,7 @@ $procedures = $result_after_decode->data->Procedure;
     </div>
 </div>
 <!-- /Main Content -->
-<?php
-$id = $_SESSION['patient_id'];
-$select_query = "SELECT * FROM visit_notes WHERE patient_id = $id";
-$data = mysqli_fetch_assoc( mysqli_query($db_connect,$select_query));
 
-?>
 
 <div class="container-fluid">
     <div class="row">
@@ -305,22 +393,33 @@ $data = mysqli_fetch_assoc( mysqli_query($db_connect,$select_query));
                 <h3 class="widget-title">Visit Notes</h3>
 
                
-                <a type="button"class="btn btn-success mr-2 float-right" href="visitnotes_update.php?id=<?php echo $_SESSION['patient_id'] ?>"> <span class="ti-pencil-alt" ></span> Edit</a>
+                <a type="button"class="btn btn-info mr-2 float-right" href="visitnotes_update.php?id=<?php echo $_SESSION['patient_id'] ?>"> <span class="ti-pencil-alt" ></span> Edit</a>
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <tbody>
-                        <tr>
+                        <!-- <tr>
                                 <td><strong>Blood Test Report</strong></td>
-                                <?php
-                               if(isset($data['blood_test_report'])){
+
+                               <td>
+                               <?php
+                               //if(isset($result['blood_test_report'])){
+                              //while($reports = mysqli_fetch_assoc($result ) ){
+                        
                                 ?>
-                                <td><a href="../admin/reports/<?php echo $data['blood_test_report']?>" download> Download Blood Test Report </a></td>
-                                <?php
-                               };
-                                ?>
+                                 <a type="button" class="btn btn-info" href="../admin/reports/<?php echo $reports['blood_test_report']?>" download><span class="ti-download mr-1"></span>Download <a class="ml-2" href="delete_report.php?id=<?php echo $reports['id'] ?>&report_name=<?php echo $reports['blood_test_report']?>" type="button">✕</a></a><br>
+
                                 
-                            </tr>
-                            <tr>
+                                 <?php
+                                //};
+                     
+                                ?>
+                              </td>
+                              
+                                                
+                           
+                                
+                            </tr> -->
+                            <!-- <tr>
                                 <td><strong>Report Name</strong></td>
                                 <?php
                                if(isset($data['report_name'])){
@@ -330,7 +429,7 @@ $data = mysqli_fetch_assoc( mysqli_query($db_connect,$select_query));
                                };
                                 ?>
                                 
-                            </tr>
+                            </tr> -->
                             <tr>
                                 <td><strong>Examination</strong></td>
                                 <?php

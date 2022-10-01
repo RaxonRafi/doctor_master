@@ -13,10 +13,10 @@ $result_after_decode = json_decode($result);
 $conditions = $result_after_decode->data->HealthCondition;
 $procedures = $result_after_decode->data->Procedure;
 $id = $_GET['id'];
-$sql = "SELECT * FROM `visit_notes` WHERE patient_id=$id";
+$sql = "SELECT * FROM visit_notes WHERE patient_id=$id";
 $sql_run = mysqli_query($db_connect,$sql);
 $result = mysqli_fetch_assoc($sql_run);
-print_r($result);
+
 
 
 
@@ -43,7 +43,7 @@ print_r($result);
         <div class="col-md-12">
             <div class="widget-area-2 proclinic-box-shadow">
                 <!-- <h3 class="widget-title">Visit Notes Update</h3> -->
-                <form method="POST" enctype="multipart/form-data" action="visitNotesUpdate_post.php">
+                <form method="POST" action="visitNotesUpdate_post.php">
 
                     <input name="doc_id" value="<?php echo $_SESSION['doc_id'] ?>" type="hidden">
                 

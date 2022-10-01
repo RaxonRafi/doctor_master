@@ -1,14 +1,8 @@
 <?php
 session_start();
  require_once "db/db.php";
-
-//  $uploaded_item = $_FILES['blood_test_report'];
-//  $uploaded_item_temp_loc = $uploaded_item['tmp_name'] ;
-//  $upload_ext = explode('.',$uploaded_item['name']);
-//  $new_name = rand().time().".". end($upload_ext);
-//  $new_location = '../admin/reports/'.$new_name;
-//  move_uploaded_file($uploaded_item_temp_loc,$new_location);
-
+  //$id =$_GET['id'];
+  $id=$_SESSION['patient_id'];
 
  if(isset($_POST['submit'])){
     $doc_id  = $_POST['doc_id'];
@@ -47,11 +41,9 @@ session_start();
  };
 
 
-//  $sql = "UPDATE visit_notes SET doc_id='$doc_id',patient_id='[value-3]',report_name='[value-5]',examination='[value-6]',blood_pressure='[value-7]',blood_pulse='[value-8]',spo2='[value-9]',fasting_blood_sugar='[value-10]',random_blood_sugar='[value-11]',hbaic='[value-12]',creatinine='[value-13]',urine_macr='[value-14]',bun='[value-15]',vit_d3='[value-16]',vit_b12='[value-17]',uric_acid='[value-18]',sgot='[value-19]',sgpt='[value-20]',father_condition='[value-21]',mother_condition='[value-22]',sister_condition='[value-23]',brother_condition='[value-24]',provisional_diagnosis='[value-25]',investigation='[value-26]',referral='[value-27]',advise_for_procedure='[value-28]',repeat_visit='[value-29]',repeat_visit_date='[value-30]',prescription='[value-31]' WHERE 1"
+  $sql = "UPDATE visit_notes SET doc_id='$doc_id',patient_id='$patient_id',report_name='$report_name',examination='$examination',blood_pressure='$blood_pressure',blood_pulse='$blood_pulse',spo2='$spo2',fasting_blood_sugar='$fasting_blood_sugar',random_blood_sugar='$random_blood_sugar',hbaic='$hbaic',creatinine='$creatinine',urine_macr='$urine_macr',bun='$bun',vit_d3='$vit_d3',vit_b12='$vit_b12',uric_acid='$uric_acid',sgot='$sgot',sgpt='$sgpt',father_condition='$father_Condition',mother_condition='$mother_Condition',sister_condition='$sister_Condition',brother_condition='$brother_Condition',provisional_diagnosis='$provisional_diagnosis',investigation='$investigation',referral='$referral',advise_for_procedure='$advise_for_procedure',repeat_visit='$repeat_visit',repeat_visit_date='$repeat_visit_date',prescription='$prescription' WHERE patient_id=$id";
 
-
-//  $sql = "INSERT INTO visit_notes(doc_id, patient_id, blood_test_report,report_name, examination, blood_pressure, blood_pulse, spo2,fasting_blood_sugar, random_blood_sugar, hbaic, creatinine, urine_macr, bun, vit_d3, vit_b12,uric_acid, sgot, sgpt,father_condition,mother_condition,brother_condition,sister_condition, provisional_diagnosis, investigation, referral, advise_for_procedure, repeat_visit, repeat_visit_date,prescription) VALUES ('$doc_id',' $patient_id ','$new_name','$report_name ',' $examination','$blood_pressure',' $blood_pulse',' $spo2','$fasting_blood_sugar','$random_blood_sugar',' $hbaic',' $creatinine','$urine_macr','$bun ','$vit_d3',' $vit_b12',' $uric_acid','$sgot','$sgpt','$father_Condition','$mother_Condition', '$brother_Condition','$sister_Condition','$provisional_diagnosis','$investigation','$referral','$advise_for_procedure','$repeat_visit ',' $repeat_visit_date','$prescription')";
-//  mysqli_query($db_connect,$sql);
- header("location:visit_notes.php");
+ mysqli_query($db_connect,$sql);
+ header("location:visitnotes_update.php?id=".$id);
 
 ?>

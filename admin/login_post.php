@@ -18,6 +18,7 @@ $result_after_encode = json_encode($result);
 $result_after_decode2 = json_decode($result_after_encode);
 $data = $result_after_decode->errorCode;
 $data_name = $result_after_decode->data;
+$_SESSION['error_code']=$data;
 $_SESSION['username']= $result_after_decode->data->fullName;
 $_SESSION['doc_id']= $result_after_decode->data->doc_id;
 $_SESSION['qualification']= $result_after_decode->data->qualification;

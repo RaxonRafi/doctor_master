@@ -23,10 +23,8 @@ session_start();
   $data = $result_after_decode->data->profileId;
 
 
-  print_r($result);
 
-
-  // header("location:patient_details.php?id=".$data);
+   header("location:patient_details.php?id=".$data);
 // if($data != ){
   
 //   $_SESSION['success'] = "Patient added successfully !";

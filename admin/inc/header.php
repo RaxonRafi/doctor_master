@@ -1,5 +1,13 @@
 <?php
 session_start();
+
+
+// if($_SESSION['error_code'] == 0){
+//     header("location:dashboard.php");
+// }else{
+//     header("location:doctor_login.php");
+// }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -140,8 +148,11 @@ session_start();
                             <li class="nav-item dropdown <?= (isset($dashboard)) ? 'active' : '' ?> ">
                                 <a class="nav-link dropdown-toggle" href="dashboard.php" role="button" aria-haspopup="true" aria-expanded="false"><span class="ti-home"></span> Dashboard</a>
                             </li>
-                            <li class="nav-item dropdown <?= (isset($add_patients)) ? 'active' : '' ?> ">
+                            <li class="nav-item dropdown <?= (isset($$visit_notes_list )) ? 'active' : '' ?> ">
                                 <a class="nav-link dropdown-toggle" href="addpatient.php" role="button" aria-haspopup="true" aria-expanded="false"><span class="ti-ink-pen"></span> Add Patient</a>
+                            </li>
+                            <li class="nav-item dropdown <?= (isset($add_patients)) ? 'active' : '' ?> ">
+                                <a class="nav-link dropdown-toggle" href="visitNoteslist.php" role="button" aria-haspopup="true" aria-expanded="false"><span class="ti-ink-pen"></span> Visit Notes</a>
                             </li>
                             <!-- <li class="nav-item dropdown  <?= (isset($patient_details)) ? 'active' : '' ?> ">
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="ti-wheelchair"></span> Patients</a>

@@ -36,7 +36,7 @@ $_SESSION['patient_id'] = $_GET['id'];
         <div class="col-md-12">
             <div class="widget-area-2 proclinic-box-shadow">
                <!-- // <h3 class="widget-title">Patient Details</h3> -->
-                <a class="btn btn-success" href="visit_notes.php?id=<?php echo $_SESSION['patient_id']?>" type="button" >Go to visit notes</a>
+                <a class="btn btn-success" href="visit_notes.php?id=<?php echo $_SESSION['patient_id']?>&name=<?php echo $_SESSION['patient_name']  ?>" type="button" >Go to visit notes</a>
              
                 <div class="table-responsive">
                     <table class="table table-bordered">

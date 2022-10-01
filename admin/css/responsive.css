@@ -276,6 +276,16 @@ Responsive Style Sheet
 
 /* Max Width 767px */
 @media (max-width: 767px) {
+
+    .blood_test_report{
+
+     margin-bottom: -20px;
+
+    }
+    .report_name{
+
+        margin-bottom: -30px;
+    }
 	
     .font-awesome-row .icon-container {
         width: 100%;
