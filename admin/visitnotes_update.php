@@ -48,7 +48,7 @@ $result = mysqli_fetch_assoc($sql_run);
                     <input name="doc_id" value="<?php echo $_SESSION['doc_id'] ?>" type="hidden">
                 
                     <input name="patient_id" value="<?php echo $_SESSION['patient_id'] ?>" type="hidden">
-
+<!-- 
                     <div class="row">
                         <!-- <div class="col-6">
                             <div class="form-group mt-5">
@@ -57,14 +57,14 @@ $result = mysqli_fetch_assoc($sql_run);
 
                             </div>
                         </div> -->
-                        <div class="col-6">
+                        <!-- <div class="col-6">
                             <div class="form-group mt-5">
                                 <label for="exampleInputEmail1">Report Name</label>
                                 <input rows="3" type="text" value="<?php echo $result['report_name'] ?>" name="report_name" style="width:50%;" class="form-control" placeholder="Report Name">
 
                             </div>
                         </div>
-                    </div>
+                    </div> --> 
 
                     <div class="form-group mt-5">
                         <label for="exampleInputEmail1">Examination</label>
