@@ -1,9 +1,28 @@
 <?php
 $patient_details = true;
 require_once "inc/header.php";
-
+$mobile = $_GET['mobile'];
 $_SESSION['patient_name'] = $_GET['name'];
 $_SESSION['patient_id'] = $_GET['id'];
+
+$url = "https://devapi.oxyjon.com/api/doctors/getpatientprofile?mobile=".$mobile;
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS,true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$result = curl_exec($ch);
+curl_close($ch);
+$result_after_decode = json_decode($result);
+
+$mobile = $result_after_decode->data->mobile;
+$patient_name = $result_after_decode->data->patient_name;
+$gender = $result_after_decode->data->gender;
+$email = $result_after_decode->data->email;
+$birth_date = $result_after_decode->data->birth_date;
+$profile_address = $result_after_decode->data->profile_address;
+$registration_date = $result_after_decode->data->registration_date;
+$city = $result_after_decode->data->city;
 
 ?>
 <!-- Breadcrumb -->
@@ -43,43 +62,42 @@ $_SESSION['patient_id'] = $_GET['id'];
                         <tbody>
                             <tr>
                                 <td><strong>Name</strong></td>
-                                <td>Daniel Smith</td>
+                                <td><?php echo $patient_name ?> </td>
                             </tr>
                             <tr>
                                 <td><strong>Date Of Birth</strong> </td>
-                                <td>26-10-1989</td>
+                                <td><?php echo $birth_date ?></td>
                             </tr>
                             <tr>
                                 <td><strong>Gender</strong></td>
-                                <td>Male</td>
+                                <td><?php echo $gender ?></td>
                             </tr>
                             <tr>
                                 <td><strong>City</strong></td>
-                                <td>Koramangala</td>
+                                <td><?php echo $city ?></td>
                             </tr>
                             <tr>
                                 <td><strong>Address</strong></td>
-                                <td>Koramangala
-                                    Banglore, India</td>
+                                <td><?php echo $profile_address ?></td>
                             </tr>
                             <tr>
                                 <td><strong>Phone </strong></td>
-                                <td>+91 11111 11111</td>
+                                <td><?php echo $mobile ?></td>
                             </tr>
                             <tr>
                                 <td><strong>Email</strong></td>
-                                <td>your@email.com</td>
+                                <td><?php echo $email ?></td>
                             </tr>
                             <tr>
                                 <td><strong>Date Of Registration</strong></td>
-                                <td>26-02-2022</td>
+                                <td><?php echo $registration_date ?></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
               
-                <button type="button" class="btn btn-success mb-3"><span class="ti-pencil-alt"></span> Edit Patient</button>
+                <a type="button" href="updatePatients.php?id=<?php echo $_SESSION['patient_id']  ?>" class="btn btn-info mb-3"><span class="ti-pencil-alt"></span> Edit Patient</a>
                 <button type="button" class="btn btn-danger mb-3"><span class="ti-trash"></span> Delete Patient</button>
    
             </div>
