@@ -44,7 +44,7 @@ Author URI: https://themeforest.net/user/konnectcode
 
 body {
 	font-family: 'Open Sans', sans-serif;
-	background-color: #EAEAED;
+	background-color: #EAEAED !important;
 	color: #3e5569;
 }
 
@@ -1207,4 +1207,17 @@ form .form-group label{
 
 a.block.block-link-pop:hover {
 	opacity: 1;
+}
+
+.btn_color{
+
+	background-color: #1E2555;
+     color: white;
+	 padding: 5px;
+	 border-radius: 2px;
+}
+
+.bg_color{
+
+	color: #EAEAED;
 }

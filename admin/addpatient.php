@@ -14,6 +14,7 @@ if (isset($_POST['submit'])) {
     $result = curl_exec($ch);
     curl_close($ch);
     $result_decode = json_decode($result);
+
    
 }
 
@@ -102,7 +103,7 @@ if (isset($_POST['submit'])) {
                         </div>
                     </div>
                     <div class="form-group col-md-6 mb-3">
-                        <button name="submit" type="submit" class="btn btn-primary btn-lg">Submit</button>
+                        <button name="submit" type="submit" class="btn_color ">Submit</button>
                     </div>
                 </form>
 

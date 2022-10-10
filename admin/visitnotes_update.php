@@ -13,9 +13,11 @@ $result_after_decode = json_decode($result);
 $conditions = $result_after_decode->data->HealthCondition;
 $procedures = $result_after_decode->data->Procedure;
 $id = $_GET['id'];
-$sql = "SELECT * FROM visit_notes WHERE patient_id=$id";
+$sql = "SELECT * FROM visit_notes WHERE id=$id";
 $sql_run = mysqli_query($db_connect,$sql);
 $result = mysqli_fetch_assoc($sql_run);
+
+$_SESSION['id'] = $id;
 
 
 
@@ -270,7 +272,7 @@ $result = mysqli_fetch_assoc($sql_run);
                             </label>
                         </div>
 
-                        <button target="_blank" name="submit" type="submit" class="btn btn-primary mt-3">Update</button>
+                        <button target="_blank" name="submit" type="submit" class="btn_color mt-3">Update</button>
                         </from>
 
 

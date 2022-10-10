@@ -35,7 +35,7 @@ $doc_id = $_SESSION['doc_id'];
             <div class="widget-area-2 proclinic-box-shadow">
               <!-- <a class="btn btn-success" href="visit_notes.php?id=<?php echo $_GET['id'] ?>" type="button" >return to visit notes</a> -->
                <!-- // <h3 class="widget-title">Add Medicines</h3> -->
-               <a type="button" target="_black" class="btn btn-info" href="pdf/index.php?id=<?php echo $_SESSION['patient_id'] ?>">Preview Prescription</a>
+               <a type="button" target="_black" class="btn_color" href="pdf/index.php?id=<?php echo $_SESSION['patient_id'] ?>">Preview Prescription</a>
 
 
                 <div class="row">
@@ -80,7 +80,7 @@ $doc_id = $_SESSION['doc_id'];
                                     <input name="date" placeholder="enter date" type="number">
                                 </div>
                             </div>
-                            <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                            <button name="submit" type="submit" class="btn_color">Submit</button>
                         </form>
                     </div>
                     <div class="col-md-6 col-sm-12">

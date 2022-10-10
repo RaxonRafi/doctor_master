@@ -49,7 +49,7 @@ $procedures = $result_after_decode->data->Procedure;
         <!-- Widget Item -->
         <div class="col-md-12">
             <div class="widget-area-2 proclinic-box-shadow">
-            <a class="btn btn-success" href="medicines.php?id=<?php echo $_SESSION['patient_id']?>" type="button" >Go to Medicines</a>
+            <a class="btn_color" href="medicines.php?id=<?php echo $_SESSION['patient_id']?>" type="button" >Go to Medicines</a>
                 <!-- <h3 class="widget-title">Visit Notes</h3> -->
                 <form action="report_post.php" method="post" enctype="multipart/form-data" >
                 <input name="doc_id" value="<?php echo $_SESSION['doc_id'] ?>" type="hidden">
@@ -76,7 +76,7 @@ $procedures = $result_after_decode->data->Procedure;
                     </div>
                     <div class="form-group float-left col-md-2 submit-btn"style="margin-top:82px ;">
                         <!-- <div class="form-group float-left "style="margin-top:82px ;" > -->
-                           <button target="_blank" name="submit" type="submit" class="btn btn-info mt-10">Submit</button>
+                           <button target="_blank" name="submit" type="submit" class="btn_color mt-10">Submit</button>
 
                         <!-- </div> -->
 
@@ -88,7 +88,8 @@ $procedures = $result_after_decode->data->Procedure;
 
 
                         $id = $_SESSION['patient_id'];
-                        $select_query = "SELECT * FROM visit_notes WHERE patient_id = $id";
+                  
+                        $select_query = "SELECT * FROM visit_notes WHERE patient_id = $id ORDER BY id DESC LIMIT 1";
                         $data = mysqli_fetch_assoc( mysqli_query($db_connect,$select_query));
                         $sql = "SELECT * FROM reports WHERE patient_id = $id";
                         $result =  mysqli_query($db_connect,$sql);
@@ -370,7 +371,7 @@ $procedures = $result_after_decode->data->Procedure;
                             </label>
                         </div>
 
-                        <button target="_blank" name="submit" type="submit" class="btn btn-info mt-3">Submit</button>
+                        <button target="_blank" name="submit" type="submit" class="btn_color mt-3">Submit</button>
                         </from>
 
 
@@ -393,7 +394,7 @@ $procedures = $result_after_decode->data->Procedure;
                 <h3 class="widget-title">Visit Notes</h3>
 
                
-                <a type="button"class="btn btn-info mr-2 float-right" href="visitnotes_update.php?id=<?php echo $_SESSION['patient_id'] ?>"> <span class="ti-pencil-alt" ></span> Edit</a>
+                <a type="button"class="btn_color mr-2 float-right" href="visitnotes_update.php?id=<?php echo $_SESSION['patient_id'] ?>"> <span class="ti-pencil-alt" ></span> Edit</a>
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <tbody>

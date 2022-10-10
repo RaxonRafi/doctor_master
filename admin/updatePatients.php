@@ -1,20 +1,27 @@
 <?php
 require_once "inc/header.php";
+require_once "inc/header.php";
+$mobile = $_GET['mobile'];
+$_SESSION['patient_id'] = $_GET['id'];
 
-$result = " ";
-if (isset($_POST['submit'])) {
-    $url = "https://devapi.oxyjon.com/api/doctors/addnewpatient";
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, true);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$url = "https://devapi.oxyjon.com/api/doctors/getpatientprofile?mobile=".$mobile;
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS,true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$result = curl_exec($ch);
+curl_close($ch);
+$result_after_decode = json_decode($result);
 
-    $result = curl_exec($ch);
-    curl_close($ch);
-    $result_decode = json_decode($result);
-   
-}
+$mobile = $result_after_decode->data->mobile;
+$patient_name = $result_after_decode->data->patient_name;
+$gender = $result_after_decode->data->gender;
+$email = $result_after_decode->data->email;
+$birth_date = $result_after_decode->data->birth_date;
+$profile_address = $result_after_decode->data->profile_address;
+$registration_date = $result_after_decode->data->registration_date;
+$city = $result_after_decode->data->city;
 
 ?>
 <!-- Breadcrumb -->
@@ -52,28 +59,29 @@ if (isset($_POST['submit'])) {
                 <form action="UpdatePatients_post.php" method="POST">
 
                     <input type="hidden" name="doctor_id" value="<?php echo $_SESSION['doc_id'] ?>">
+                    <input type="hidden" name="patient_id" value="<?php echo $_SESSION['patient_id'] ?>">
 
                     <div class="form-row mt-5">
                         <div class="form-group col-md-6">
                             <label for="patient-name">Patient Name</label>
-                            <input name="name" required type="text" class="form-control" placeholder="Patient name" id="patient-name">
+                            <input name="name" value="<?php echo $patient_name ?>" required type="text" class="form-control" placeholder="Patient name" id="patient-name">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="dob">Date Of Birth</label>
-                            <input name="birth_date" type="date" placeholder="Date of Birth" class="form-control" id="dob">
+                            <input name="birth_date"  value="<?php echo $birth_date ?>"  type="text" placeholder="Date of Birth" class="form-control" id="dob">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="age">Email</label>
-                            <input type="Email" name="email" placeholder="Enter Email Address" class="form-control" id="Email">
+                            <input type="Email"  value="<?php echo $email ?>"  name="email" placeholder="Enter Email Address" class="form-control" id="Email">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="phone">Phone</label>
-                            <input type="phone" required  name="mobile" placeholder="Phone" class="form-control" id="phone">
+                            <input type="phone"  value="<?php echo $mobile ?>"  required  name="mobile" placeholder="Phone" class="form-control" id="phone">
                         </div>
 
                         <div class="col-md-6 form-group" id="residing_in_ids">
                             <label for="residing_in">City <small>(select from lookup)</small></label> <span class="span_error"  id="error_BirthDate"></span>
-                            <input type="text"class="form-control form_input" autocomplete="off" name="city" id="residing_in" placeholder="Residing in">                        
+                            <input type="text"  value="<?php echo $city ?>"  class="form-control form_input" autocomplete="off" name="city" id="residing_in" placeholder="Residing in">                        
                             <input type="hidden" name="residing_in_id" id="residing_in_id" value="0"> 
                      
                         </div>
@@ -84,18 +92,30 @@ if (isset($_POST['submit'])) {
                             <span id="residing_in"></span>
                         </div> -->
                         <div class="form-group col-md-6">
-                            <label for="phone">Address</label>
-                            <textarea type="text" required name="address" placeholder="Enter Your Address" class="form-control" id="phone"></textarea>
+                            <label for="Address">Address</label>
+                            <input type="text"  value="<?php echo $profile_address ?>"  required name="address" placeholder="Enter Your Address" class="form-control" id="address">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Date Of Registration</label>
-                            <input type="date" placeholder="Registration date" class="form-control">
+                            <input type="text"  value="<?php echo $registration_date ?>"  placeholder="Registration date" class="form-control">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="gender">Gender</label>
                             <select name="gender" required class="form-control" id="gender">
-                                <option value="M">Male</option>
-                                <option value="F">Female</option>
+                                <option value="M" 
+                                   <?php
+                                 if(isset($gender) == "M"){
+                                    echo "selected";
+                                 }
+                                   ?>
+                                >Male</option>
+                                <option value="F"
+                                <?php
+                                 if(isset($gender) == "F"){
+                                    echo "selected";
+                                 }
+                                   ?>
+                                >Female</option>
                                 <option>Other</option>
                             </select>
                         </div>

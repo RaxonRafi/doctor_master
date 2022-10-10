@@ -104,7 +104,7 @@ if (isset($_POST['submit'])) {
                                 <!-- /Check Box -->
                                 <!-- Login Button -->
                                 <div class="button-btn-block">
-                                    <button name="submit" type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+                                    <button name="submit" type="submit" class="btn_color  btn-block">Login</button>
                                 </div>
                                 <!-- /Login Button -->
                                 <!-- Links -->

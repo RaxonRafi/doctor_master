@@ -2,10 +2,12 @@
 $visit_notes_list = true;
 require_once "inc/header.php";
 require_once "db/db.php";
-
-$sql = "SELECT * FROM visit_notes";
+$id = $_GET['id'];
+$sql = "SELECT * FROM visit_notes WHERE patient_id = $id";
 $notes = mysqli_query($db_connect,$sql);
-//print_r(mysqli_fetch_assoc($notes));
+
+$data = mysqli_fetch_assoc($notes);
+
 
 ?>
 <div class="container-fluid mt-0">
@@ -33,6 +35,10 @@ $notes = mysqli_query($db_connect,$sql);
         <!-- Widget Item -->
         <div class="col-md-12">
             <div class="widget-area-2 proclinic-box-shadow">
+               
+           <a class="btn_color" href="visit_notes.php?id=<?php echo $id ?>">Create New visit Notes</a> 
+
+           <h1 class="float-right" ><?php echo $data['patient_name']?></h1>
 
          <div class="table-responsive">
             <table class="table table-striped table-bordered table-hover text-center">
@@ -40,8 +46,7 @@ $notes = mysqli_query($db_connect,$sql);
                 
                     <tr>
                         <th>ProfileId</th>
-                        <th>Patient Name</th>
-                        <th>Repeat Visit Date</th>
+                        <th>Created At</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -55,11 +60,10 @@ $notes = mysqli_query($db_connect,$sql);
 
                         <tr >
                             <td><?php echo $note['patient_id'] ?></td>
-                            <td><?php echo $note['patient_name']; ?></td>
-                            <td><?php echo $note['repeat_visit_date']." ".$note['repeat_visit'] ?></td>
+                            <td><?php echo $note['created_at']?></td>
                             
                             <td>
-                                <a type="button" href="visitlistshow.php?id=<?php echo $note['id']?>&patient_id=<?php echo $note['patient_id'] ?>" class="btn_color">View Visit Notes</a>
+                                <a type="button" href="visitlistshow.php?id=<?php echo $note['id']  ?>" class="btn_color">View Visit Notes</a>
                             </td>
                         </tr>
                        <?php

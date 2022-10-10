@@ -5,12 +5,11 @@
  require_once "db/db.php";
 
 
-$id = $_SESSION['patient_id'];
-$select_query = "SELECT * FROM visit_notes WHERE patient_id = $id";
+$id = $_GET['id'];
+$select_query = "SELECT * FROM visit_notes WHERE id = $id";
 $data = mysqli_fetch_assoc( mysqli_query($db_connect,$select_query));
-$sql = "SELECT * FROM reports WHERE patient_id = $id";
-$result =  mysqli_query($db_connect,$sql);
-
+// $sql = "SELECT * FROM reports WHERE patient_id = $id";
+// $result =  mysqli_query($db_connect,$sql);
 ?>
 <div class="container-fluid">
     <div class="row">
@@ -20,43 +19,11 @@ $result =  mysqli_query($db_connect,$sql);
                 <h3 class="widget-title">Visit Notes</h3>
 
                
-                <a type="button"class="btn btn-info mr-2 float-right" href="visitnotes_update.php?id=<?php echo $_SESSION['patient_id'] ?>"> <span class="ti-pencil-alt" ></span> Edit</a>
+                <a type="button"class="btn_color mr-2 float-right" href="visitnotes_update.php?id=<?php echo $id ?>"> <span class="ti-pencil-alt"></span> Edit</a>
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <tbody>
-                        <!-- <tr>
-                                <td><strong>Blood Test Report</strong></td>
 
-                               <td>
-                               <?php
-                               //if(isset($result['blood_test_report'])){
-                              //while($reports = mysqli_fetch_assoc($result ) ){
-                        
-                                ?>
-                                 <a type="button" class="btn btn-info" href="../admin/reports/<?php echo $reports['blood_test_report']?>" download><span class="ti-download mr-1"></span>Download <a class="ml-2" href="delete_report.php?id=<?php echo $reports['id'] ?>&report_name=<?php echo $reports['blood_test_report']?>" type="button">✕</a></a><br>
-
-                                
-                                 <?php
-                                //};
-                     
-                                ?>
-                              </td>
-                              
-                                                
-                           
-                                
-                            </tr> -->
-                            <!-- <tr>
-                                <td><strong>Report Name</strong></td>
-                                <?php
-                               if(isset($data['report_name'])){
-                                ?>
-                                <td><?php echo $data['report_name'] ?></td>
-                                <?php
-                               };
-                                ?>
-                                
-                            </tr> -->
                             <tr>
                                 <td><strong>Examination</strong></td>
                                 <?php
@@ -67,10 +34,7 @@ $result =  mysqli_query($db_connect,$sql);
                                };
                                 ?>
                             </tr>
-                            <!-- <tr>
-                                <td><strong>Health Parameters</strong> </td>
 
-                            </tr> -->
                             <tr>
                                 <td><strong>Blood Pressure</strong></td>
                                 <?php
@@ -321,3 +285,67 @@ $result =  mysqli_query($db_connect,$sql);
         <!-- /Widget Item -->
     </div>
 </div>
+
+<?php
+ 
+ $id =$_SESSION['patient_id'];
+ $select_query = "SELECT * FROM medicines WHERE patient_id=$id";
+ $query_run = mysqli_query($db_connect, $select_query);
+ $result =$query_run;
+
+?>
+<div class="container-fluid">
+    <div class="row">
+        <!-- Widget Item -->
+        <div class="col-md-12">
+
+
+        <div class="widget-area-2 proclinic-box-shadow">
+                            <h3 class="widget-title mb-2">List of Medicines</h3>
+                            <div class="table-div">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-responsive table-striped">
+                                        <thead>
+                                            <tr class="text-center">
+                                                <th scope="col">sl no.</th>
+                                                <th scope="col">Medicine Name</th>
+                                                <th scope="col">Quantity</th>
+                                                <th scope="col">Time of the day</th>
+                                                <th scope="col">Continue till</th>
+                                      
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <?php
+                                            $serial = 1;
+                                            foreach ($result as $data) {
+ 
+                                            ?> 
+                                                <tr>
+                                                    <td><?php echo $serial++ ?></td>
+                                                    <td><?php echo $data['medicine_name'] ?></td>
+                                                    <td><?php echo $data['quantity'] ?></td>
+                                                    <td><?php echo $data['time_of_the_day'] ?></td>
+                                                    <td><?php echo $data['continue_till_date']." ".$data['continue_till'] ?></td>
+                                        
+                                                </tr>
+                                            <?php
+                                            }
+                                            ?> 
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+            </div>
+            </div>
+            </div>
+
+
+         

@@ -15,6 +15,8 @@ $result = curl_exec($ch);
 curl_close($ch);
 $result_after_decode = json_decode($result);
 
+//print_r($result_after_decode);
+
 $mobile = $result_after_decode->data->mobile;
 $patient_name = $result_after_decode->data->patient_name;
 $gender = $result_after_decode->data->gender;
@@ -55,8 +57,9 @@ $city = $result_after_decode->data->city;
         <div class="col-md-12">
             <div class="widget-area-2 proclinic-box-shadow">
                <!-- // <h3 class="widget-title">Patient Details</h3> -->
-                <a class="btn btn-success" href="visit_notes.php?id=<?php echo $_SESSION['patient_id']?>&name=<?php echo $_SESSION['patient_name']  ?>" type="button" >Go to visit notes</a>
-             
+                <a class="btn_color" href="visit_notes.php?id=<?php echo $_SESSION['patient_id']?>&name=<?php echo $_SESSION['patient_name']  ?>" type="button" >Create New visit notes</a>
+                <a class="btn_color mb-2" href="Pastvisit_notes.php?id=<?php echo $_SESSION['patient_id']?>" type="button" >Past visit notes</a>
+
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <tbody>
@@ -97,8 +100,8 @@ $city = $result_after_decode->data->city;
                 </div>
 
               
-                <a type="button" href="updatePatients.php?id=<?php echo $_SESSION['patient_id']  ?>" class="btn btn-info mb-3"><span class="ti-pencil-alt"></span> Edit Patient</a>
-                <button type="button" class="btn btn-danger mb-3"><span class="ti-trash"></span> Delete Patient</button>
+                <a type="button" href="updatePatients.php?id=<?php echo $_SESSION['patient_id']?>&mobile=<?php echo $mobile  ?>" class="btn_color"><span class="ti-pencil-alt"></span> Edit Patient</a>
+                <button type="button" class="btn btn-danger "><span class="ti-trash"></span> Delete Patient</button>
    
             </div>
         </div>
