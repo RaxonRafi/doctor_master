@@ -1,6 +1,4 @@
-
  <?php
- 
  require_once "inc/header.php";
  require_once "db/db.php";
 
@@ -288,7 +286,7 @@ $data = mysqli_fetch_assoc( mysqli_query($db_connect,$select_query));
 
 <?php
  
- $id =$_SESSION['patient_id'];
+ $id = $_SESSION['patient_id'];
  $select_query = "SELECT * FROM medicines WHERE patient_id=$id";
  $query_run = mysqli_query($db_connect, $select_query);
  $result =$query_run;

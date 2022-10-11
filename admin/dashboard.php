@@ -54,9 +54,9 @@ $data_decode = json_decode($data_encode);
 </div>
 <!-- Main Content -->
 <div class="container-fluid home">
-    <div class="row revenue">
+    <!-- <div class="row revenue"> -->
         <!-- Widget Item -->
-        <div class="col-md-4">
+        <!-- <div class="col-md-4">
             <div class="widget-area proclinic-box-shadow color-red">
                 <div class="widget-left">
                     <span class="ti-user"></span>
@@ -67,10 +67,10 @@ $data_decode = json_decode($data_encode);
                     <p class="inc-dec mb-0"><span class="ti-angle-up"></span> +20% Increased</p>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- /Widget Item -->
         <!-- Widget Item -->
-        <div class="col-md-4">
+        <!-- <div class="col-md-4">
             <div class="widget-area proclinic-box-shadow color-green">
                 <div class="widget-left">
                     <span class="ti-bar-chart"></span>
@@ -81,10 +81,10 @@ $data_decode = json_decode($data_encode);
                     <p class="inc-dec mb-0"><span class="ti-angle-down"></span> -15% Decreased</p>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- /Widget Item -->
         <!-- Widget Item -->
-        <div class="col-md-4">
+        <!-- <div class="col-md-4">
             <div class="widget-area proclinic-box-shadow color-yellow">
                 <div class="widget-left">
                     <span class="ti-money"></span>
@@ -95,9 +95,9 @@ $data_decode = json_decode($data_encode);
                     <p class="inc-dec mb-0"><span class="ti-angle-up"></span> +10% Increased</p>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- /Widget Item -->
-    </div>
+    <!-- </div> -->
 
     <div class="row">
         <!-- Widget Item -->

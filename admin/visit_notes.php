@@ -16,6 +16,7 @@ $procedures = $result_after_decode->data->Procedure;
 
 
 
+
 ?>
 <!-- Breadcrumb -->
 <!-- Page Title -->
@@ -93,6 +94,7 @@ $procedures = $result_after_decode->data->Procedure;
                         $data = mysqli_fetch_assoc( mysqli_query($db_connect,$select_query));
                         $sql = "SELECT * FROM reports WHERE patient_id = $id";
                         $result =  mysqli_query($db_connect,$sql);
+                        
 
                         ?>
 
@@ -394,7 +396,7 @@ $procedures = $result_after_decode->data->Procedure;
                 <h3 class="widget-title">Visit Notes</h3>
 
                
-                <a type="button"class="btn_color mr-2 float-right" href="visitnotes_update.php?id=<?php echo $_SESSION['patient_id'] ?>"> <span class="ti-pencil-alt" ></span> Edit</a>
+                <a type="button"class="btn_color mr-2 float-right" href="visitnotes_update.php?id=<?php echo $data['id'] ?>"> <span class="ti-pencil-alt" ></span> Edit</a>
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <tbody>
