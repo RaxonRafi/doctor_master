@@ -105,7 +105,7 @@ $data_decode = json_decode($data_encode);
             <div class="widget-area-2 proclinic-box-shadow">
                 <h3 class="widget-title">Patients List</h3>
                 <div class="table-responsive">
-                    <table class="table table-bordered table-striped">
+                    <table  class="table table-bordered text-center table-striped">
                         <thead>
                             <tr class="text-center">
                                 <th>ProfileId</th>
@@ -114,10 +114,10 @@ $data_decode = json_decode($data_encode);
                                 <th>Gender</th>
                                 <th>Birth date</th>
                                 <th>Location</th>
-                                <th>Repeat Visit Date</th>
+                                <!-- <th>Repeat Visit Date</th> -->
                                 <th>Last Visit date</th>                              
                                 <th>Condition</th>
-                                <th>Alerts</th>
+                                <!-- <th>Alerts</th> -->
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -206,45 +206,9 @@ $data_decode = json_decode($data_encode);
                                     <?php
                                     }
                                     ?>
-                                    <!-- <?php
-                                    if ($single_data->diabetesType) {
-                                    ?>
-                                        <td><?php echo $single_data->diabetesType ?></td>
-                                    <?php
-                                    } else {
-
-
-                                    ?>
-                                        <td></td>
-                                    <?php
-                                    }
-                                    ?> -->
-                                    <?php
-                                    if ($single_data->height_ft) {
-                                    ?>
-                                        <td><?php echo $single_data->height_ft ?></td>
-                                    <?php
-                                    } else {
-
-
-                                    ?>
-                                        <td></td>
-                                    <?php
-                                    }
-                                    ?>
-                                    <?php
-                                    if ($single_data->height_inches) {
-                                    ?>
-                                        <td><?php echo $single_data->height_inches ?></td>
-                                    <?php
-                                    } else {
-
-
-                                    ?>
-                                        <td></td>
-                                    <?php
-                                    }
-                                    ?>
+                        
+                                   
+                        
                                     <?php
                                     if ($single_data->weight) {
                                     ?>

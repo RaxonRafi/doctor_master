@@ -14,6 +14,12 @@ if (isset($_POST['submit'])) {
     $result_decode = json_decode($result);
 }
 
+
+if(isset($_SESSION['mobileNumber'] )){
+    header("location:dasboard.php");
+}
+
+
 ?>
 <!DOCTYPE html>
 <html>

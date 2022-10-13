@@ -41,7 +41,7 @@ $notes = mysqli_query($db_connect,$sql);
                     <tr>
                         <th>ProfileId</th>
                         <th>Patient Name</th>
-                        <th>Repeat Visit Date</th>
+                        <th>Date</th>
                         <th>Action</th>
                     </tr>
                     </thead>

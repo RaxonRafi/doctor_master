@@ -2,11 +2,9 @@
 session_start();
 
 
-// if($_SESSION['error_code'] == 0){
-//     header("location:dashboard.php");
-// }else{
-//     header("location:doctor_login.php");
-// }
+if(!isset($_SESSION['mobileNumber'] )){
+    header("location:doctor_login.php");
+}
 
 ?>
 <!DOCTYPE html>
@@ -52,12 +50,12 @@ session_start();
 
 <body>
     <!-- Pre Loader -->
-    <!-- <div class="loading">
+    <div class="loading">
         <div class="spinner">
             <div class="double-bounce1"></div>
             <div class="double-bounce2"></div>
         </div>
-    </div> -->
+    </div>
     <!--/Pre Loader -->
 
     <div class="container-fluid wrapper">

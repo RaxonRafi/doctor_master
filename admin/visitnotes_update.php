@@ -76,83 +76,84 @@ $_SESSION['id'] = $id;
                     <div class="form-group">
                         <label>Health Parameters</label>
                         <div class="row">
-                            <div class="d-flex">
-                                <div class="form-group col-md-4 col-sm-3">
+                            <!-- <div class="d-flex"> -->
+                                <div class="form-group col-md-3 col-sm-12">
                                 <label for="blood_pressure" > BP </label>
                                 <input value="<?php echo $result['blood_pressure'] ?>" name="blood_pressure" id="blood_pressure" type="text" rows="3" class="form-control" placeholder=" BP">
                                 </div>
-                                <div class="form-group col-md-4 col-sm-3">
+                                <div class="form-group col-md-3 col-sm-12">
                                 <label for="blood_pulse"> Pulse </label>
                                     <input type="text" value="<?php echo $result['blood_pulse'] ?>" name="blood_pulse" rows="3" class="form-control" placeholder="Pulse ">
                                 </div>
-                                <div class="form-group col-md-4 col-sm-3">
+                                <div class="form-group col-md-3 col-sm-12">
                                     <label for="spo2"> SPO2 </label>
                                     <input type="text" value="<?php echo $result['spo2'] ?>" name="spo2" rows="3" class="form-control" placeholder=" SPO2 ">
                                 </div>
-                                <div class="form-group col-md-4 col-sm-3">
+                                <div class="form-group col-md-3 col-sm-12">
                                     <label for="fasting_blood_sugar"> Fasting Sugar</label>
                                     <input type="text" value="<?php echo $result['fasting_blood_sugar'] ?>" name="fasting_blood_sugar" rows="3" class="form-control" placeholder=" Fasting Blood Sugar">
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="d-flex">
-                                <div class="form-group col-md-4 col-sm-3">
+                            <!-- </div> -->
+                         
+              
+                            <!-- <div class="d-flex"> -->
+                                <div class="form-group col-md-3 col-sm-12">
                                     <label for="random_blood_sugar"> Random Sugar </label>
                                     <input type="text" value="<?php echo $result['random_blood_sugar'] ?>" name="random_blood_sugar" rows="3" class="form-control" placeholder=" Random Blood Sugar">
                                 </div>
-                                <div class="form-group col-md-4 col-sm-3">
+                                <div class="form-group col-md-3 col-sm-12">
                                    <label for="hbaic"> HbA1c </label>
                                     <input type="text"value="<?php echo $result['hbaic'] ?>" name="hbaic" rows="3" class="form-control" placeholder=" HbA1c">
                                 </div>
-                                <div class="form-group col-md-4 col-sm-3">
+                                <div class="form-group col-md-3 col-sm-12">
                                     <label for="creatinine"> Creatinine </label>
                                     <input type="text" value="<?php echo $result['creatinine'] ?>" name="creatinine" rows="3" class="form-control" placeholder=" Creatinine">
                                 </div>
-                                <div class="form-group col-md-4 col-sm-3">
+                                <div class="form-group col-md-3 col-sm-12">
                                     <label for="urine_macr"> Urine MACR</label>
                                     <input type="text" value="<?php echo $result['urine_macr'] ?>" name="urine_macr" rows="3" class="form-control" placeholder=" Urine MACR">
                                 </div>
-                            </div>
-                        </div>
+                            <!-- </div> -->
+                        
 
-                        <div class="row">
-                            <div class="d-flex">
 
-                                <div class="form-group col-md-4 col-sm-3">
+                            <!-- <div class="d-flex"> -->
+
+                                <div class="form-group col-md-3 col-sm-12">
                                     <label for="bun"> BUN </label>
                                     <input type="text" value="<?php echo $result['bun'] ?>" name="bun" rows="3" class="form-control" placeholder=" BUN">
                                 </div>
-                                <div class="form-group col-md-4 col-sm-3">
+                                <div class="form-group col-md-3 col-sm-12">
                                     <label for="vit_d3"> Vit D3 </label>
                                     <input type="text" value="<?php echo $result['vit_d3'] ?>" name="vit_d3" rows="3" class="form-control" placeholder=" Vit D3">
                                 </div>
-                                <div class="form-group col-md-4 col-sm-3">
+                                <div class="form-group col-md-3 col-sm-12">
                                     <label for="vit_b12"> Vit B12 </label>
                                     <input type="text" value="<?php echo $result['vit_b12'] ?>" name="vit_b12" rows="3" class="form-control" placeholder="  Vit B12">
                                 </div>
-                                <div class="form-group col-md-4 col-sm-3">
+                                <div class="form-group col-md-3 col-sm-12">
                                     <label for="uric_acid"> Uric acid </label>
                                     <input type="text" value="<?php echo $result['uric_acid'] ?>" name="uric_acid" rows="3" class="form-control" placeholder=" Uric acid">
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4 d-flex">
-                                <div class="form-group col-sm-6">
+                            <!-- </div> -->
+                 
+                       
+                            <!-- <div class="col-md-4 d-flex"> -->
+                                <div class="form-group col-md-3 col-sm-12">
                                     <label for="sgot"> SGOT </label>
                                     <input name="sgot" value="<?php echo $result['sgot'] ?>" type="text" rows="3" class="form-control" placeholder="SGOT">
                                 </div>
-                                <div class="form-group col-sm-6">
+                                <div class="form-group col-md-3 col-sm-12">
                                     <label for="sgpt"> SGPT </label>
                                     <input type="text" value="<?php echo $result['sgpt'] ?>" name="sgpt" rows="3" class="form-control" placeholder="SGPT">
                                 </div>
-                            </div>
+                            <!-- </div> -->
                         </div>
                         <div class="form-group ">
                             <label>Family History</label>
 
-                            <div class="form-group col-md-9  d-flex">
+                        <div class="row">
+                            <div class="form-group col-md-3 col-sm-12">
 
                                 <select name="father_Condition" class="form-control" id="exampleFormControlSelect1">
                                     <option>--Father Condition--</option>
@@ -163,6 +164,9 @@ $_SESSION['id'] = $id;
                                     <option value="Kidney disease" <?php echo ($result['father_condition'] =="Kidney disease")? 'selected':'' ?> >Kidney disease</option>
                                     <option value="Cholesterol issue" <?php echo ($result['father_condition'] =="Cholesterol issue")? 'selected':'' ?> >Cholesterol issue</option>
                                 </select>
+
+                            </div>   
+                            <div class="form-group col-md-3 col-sm-12">
                                 <select  name="mother_Condition"  class="form-control" id="exampleFormControlSelect1">
                                     <option>--Mother Condition--</option>
                                     <option value="Type 2 Diabetes"<?php echo ($result['mother_condition'] == "Type 2 Diabetes" )? 'selected':'' ?> > Type 2 Diabetes</option>
@@ -172,6 +176,8 @@ $_SESSION['id'] = $id;
                                     <option value="Kidney disease" <?php echo ($result['mother_condition'] =="Kidney disease")? 'selected':'' ?> >Kidney disease</option>
                                     <option value="Cholesterol issue" <?php echo ($result['mother_condition'] =="Cholesterol issue")? 'selected':'' ?> >Cholesterol issue</option>
                                 </select>
+                            </div>
+                            <div class="form-group col-md-3 col-sm-12"> 
                                 <select name="sister_Condition"  class="form-control" id="exampleFormControlSelect1">
                                     <option>--Sister Condition--</option>
                                     <option value="Type 2 Diabetes"<?php echo ($result['sister_condition'] == "Type 2 Diabetes" )? 'selected':'' ?> > Type 2 Diabetes</option>
@@ -181,6 +187,10 @@ $_SESSION['id'] = $id;
                                     <option value="Kidney disease" <?php echo ($result['sister_condition'] =="Kidney disease")? 'selected':'' ?> >Kidney disease</option>
                                     <option value="Cholesterol issue" <?php echo ($result['sister_condition'] =="Cholesterol issue")? 'selected':'' ?> >Cholesterol issue</option>
                                 </select>
+
+                            </div>
+                            
+                            <div class="form-group col-md-3 col-sm-12"> 
                                 <select name="brother_Condition" class="form-control" id="exampleFormControlSelect1">
                                     <option>--Brother Condition--</option>
                                     <option value="Type 2 Diabetes"<?php echo ($result['brother_condition'] == "Type 2 Diabetes" )? 'selected':'' ?> > Type 2 Diabetes</option>
@@ -191,7 +201,10 @@ $_SESSION['id'] = $id;
                                     <option value="Cholesterol issue" <?php echo ($result['brother_condition'] =="Cholesterol issue")? 'selected':'' ?> >Cholesterol issue</option>
                                 </select>
 
+
                             </div>
+
+                         
                         </div>
 
                         <label>Provisional diagnosis</label>
@@ -239,18 +252,23 @@ $_SESSION['id'] = $id;
                             <input value="<?php echo $result['advise_for_procedure'] ?>" name="advise_for_procedure" type="text" style="width: 75%;" class="form-control form-control-sm" placeholder="" aria-controls="tableId">
                         </div>
 
+
+                        <label>Repeat visit date</label>
                         <div class="row">
-                            <div class="col-12">
-                                <label>Repeat visit date</label>
-                                <div class="form-group  d-flex">
+                            
+                            <div class="form-group col-md-4 col-sm-12">
                                     <select name="repeat_visit" style="width: 60%;" col="3" class="form-control" id="exampleFormControlSelect1">
                                         <option>--Select day or month--</option>
                                         <option value="Day" <?php echo (isset($result['repeat_visit']) == "Day") ? 'selected':'' ?> >Day</option>
                                         <option value="Month"<?php echo (isset($result['repeat_visit']) == "Month") ? 'selected': ''?> >Month</option>
                                     </select>
-                                    <input value="<?php echo $result['repeat_visit_date'] ?>" name="repeat_visit_date" placeholder="enter date" type="number">
+                                   
                                 </div>
-                            </div>
+
+                                <div class="form-group col-md-4 col-sm-12">
+                                  <input value="<?php echo $result['repeat_visit_date'] ?>" name="repeat_visit_date" placeholder="enter date" type="number">
+                                </div>
+                                                                                                                              
                         </div>
                         <label>Prescription</label>
                         <div class="form-check">
