@@ -59,7 +59,7 @@ $notes = mysqli_query($db_connect,$sql);
                             <td><?php echo $note['repeat_visit_date']." ".$note['repeat_visit'] ?></td>
                             
                             <td>
-                                <a type="button" href="visitlistshow.php?id=<?php echo $note['id']?>&patient_id=<?php echo $note['patient_id'] ?>" class="btn_color">View Visit Notes</a>
+                                <a type="button" href="visitlistshow.php?id=<?php echo $note['id']?>&patient_id=<?php echo $note['patient_id'] ?>" class="btn_color">View Notes</a>
                             </td>
                         </tr>
                        <?php

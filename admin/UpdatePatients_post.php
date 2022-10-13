@@ -1,5 +1,7 @@
 <?php
  require_once "db/db.php";
+
+ $mobile = $_GET['mobile'];
   
   $arr['name'] = $_POST['name'];
   $arr['gender'] = $_POST['gender'];
@@ -11,7 +13,6 @@
   $arr['email'] = $_POST['email'];
   $arr['city'] = $_POST['residing_in_id'];
 
-  
   json_encode($arr);
 $url = "https://devapi.oxyjon.com/api/doctors/updatepatientprofile";
 $ch = curl_init();
@@ -23,7 +24,6 @@ $result = curl_exec($ch);
 curl_close($ch);
 $result_after_decode = json_decode($result);
 
-print_r($result);
 
-
+header("location:updatePatients.php?mobile=".$mobile);
 ?>

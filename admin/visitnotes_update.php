@@ -90,7 +90,7 @@ $_SESSION['id'] = $id;
                                     <input type="text" value="<?php echo $result['spo2'] ?>" name="spo2" rows="3" class="form-control" placeholder=" SPO2 ">
                                 </div>
                                 <div class="form-group col-md-4 col-sm-3">
-                                    <label for="fasting_blood_sugar">  Fasting BS. </label>
+                                    <label for="fasting_blood_sugar"> Fasting Sugar</label>
                                     <input type="text" value="<?php echo $result['fasting_blood_sugar'] ?>" name="fasting_blood_sugar" rows="3" class="form-control" placeholder=" Fasting Blood Sugar">
                                 </div>
                             </div>
@@ -98,7 +98,7 @@ $_SESSION['id'] = $id;
                         <div class="row">
                             <div class="d-flex">
                                 <div class="form-group col-md-4 col-sm-3">
-                                    <label for="random_blood_sugar"> Random BS. </label>
+                                    <label for="random_blood_sugar"> Random Sugar </label>
                                     <input type="text" value="<?php echo $result['random_blood_sugar'] ?>" name="random_blood_sugar" rows="3" class="form-control" placeholder=" Random Blood Sugar">
                                 </div>
                                 <div class="form-group col-md-4 col-sm-3">

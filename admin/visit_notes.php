@@ -180,12 +180,12 @@ $procedures = $result_after_decode->data->Procedure;
                                     <input type="text" name="spo2" rows="3" class="form-control" placeholder=" SPO2 ">
                                 </div>
                                 <div class="form-group col-md-3 col-sm-12">
-                                    <label for="fasting_blood_sugar">  Fasting BS. </label>
+                                    <label for="fasting_blood_sugar">  Fasting Sugar</label>
                                     <input type="text" name="fasting_blood_sugar" rows="3" class="form-control" placeholder=" Fasting Blood Sugar">
                                 </div>
                                                                        
                                 <div class="form-group col-md-3 col-sm-12">
-                                    <label for="random_blood_sugar"> Random BS. </label>
+                                    <label for="random_blood_sugar"> Random Sugar</label>
                                     <input type="text" name="random_blood_sugar" rows="3" class="form-control" placeholder=" Random Blood Sugar">
                                 </div>
                                 <div class="form-group col-md-3 col-sm-12">
@@ -538,7 +538,7 @@ $procedures = $result_after_decode->data->Procedure;
                                 ?>
                             </tr>
                             <tr>
-                                <td><strong> vit_d3</strong></td>
+                                <td><strong> Vitamin D3</strong></td>
                                 <?php
                                if(isset($data['vit_d3'])){
                                 ?>
@@ -548,7 +548,7 @@ $procedures = $result_after_decode->data->Procedure;
                                 ?>
                             </tr>
                             <tr>
-                                <td><strong> vit_b12</strong></td>
+                                <td><strong> Vitamin B12</strong></td>
                                 <?php
                                if(isset($data['vit_b12'])){
                                 ?>
@@ -558,7 +558,7 @@ $procedures = $result_after_decode->data->Procedure;
                                 ?>
                             </tr>
                             <tr>
-                                <td><strong> uric_acid</strong></td>
+                                <td><strong> Uric Acid</strong></td>
                                 <?php
                                if(isset($data['uric_acid'])){
                                 ?>
@@ -568,7 +568,7 @@ $procedures = $result_after_decode->data->Procedure;
                                 ?>
                             </tr>
                             <tr>
-                                <td><strong> sgot</strong></td>
+                                <td><strong> SGOT</strong></td>
                                 <?php
                                if(isset($data['sgot'])){
                                 ?>
@@ -578,7 +578,7 @@ $procedures = $result_after_decode->data->Procedure;
                                 ?>>
                             </tr>
                             <tr>
-                                <td><strong> sgpt</strong></td>
+                                <td><strong> SGPT</strong></td>
                                 <?php
                                if(isset($data['sgpt'])){
                                 ?>
@@ -608,7 +608,7 @@ $procedures = $result_after_decode->data->Procedure;
                                 ?>
                             </tr>
                             <tr>
-                            <td><strong>sister Condition</strong></td>
+                            <td><strong>Sister Condition</strong></td>
                                 <?php
                                if(isset($data['sister_condition'])){
                                 ?>
@@ -628,7 +628,7 @@ $procedures = $result_after_decode->data->Procedure;
                                 ?>
                             </tr>
                             <tr>
-                                <td><strong>patient Conditions </strong></td>
+                                <td><strong>Patient Condition </strong></td>
                                 <?php
                                if(isset($data['provisional_diagnosis'])){
                                 ?>

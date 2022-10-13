@@ -2,7 +2,7 @@
 require_once "inc/header.php";
 require_once "inc/header.php";
 $mobile = $_GET['mobile'];
-$_SESSION['patient_id'] = $_GET['id'];
+//$_SESSION['patient_id'] = $_GET['id'];
 
 $url = "https://devapi.oxyjon.com/api/doctors/getpatientprofile?mobile=".$mobile;
 $ch = curl_init();
@@ -56,7 +56,7 @@ $city = $result_after_decode->data->city;
             <div class="widget-area-2 proclinic-box-shadow">
                 <h3 class="widget-title">Edit Patient </h3>
               
-                <form action="UpdatePatients_post.php" method="POST">
+                <form action="UpdatePatients_post.php?mobile=<?php echo $mobile  ?>" method="POST">
 
                     <input type="hidden" name="doctor_id" value="<?php echo $_SESSION['doc_id'] ?>">
                     <input type="hidden" name="patient_id" value="<?php echo $_SESSION['patient_id'] ?>">
