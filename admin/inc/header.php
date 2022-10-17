@@ -50,12 +50,12 @@ if(!isset($_SESSION['mobileNumber'] )){
 
 <body>
     <!-- Pre Loader -->
-    <div class="loading">
+    <!-- <div class="loading">
         <div class="spinner">
             <div class="double-bounce1"></div>
             <div class="double-bounce2"></div>
         </div>
-    </div>
+    </div> -->
     <!--/Pre Loader -->
 
     <div class="container-fluid wrapper">

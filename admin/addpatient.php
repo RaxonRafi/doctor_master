@@ -18,6 +18,7 @@ if (isset($_POST['submit'])) {
    
 }
 
+
 ?>
 <!-- Breadcrumb -->
 <!-- Page Title -->
@@ -54,6 +55,7 @@ if (isset($_POST['submit'])) {
                 <form action="addpatient_post.php" method="POST">
 
                     <input type="hidden" name="doctor_id" value="<?php echo $_SESSION['doc_id'] ?>">
+                    <input type="hidden" name="patient_id" value="<?php echo $_SESSION['patient_id']  ?>" >
 
                     <div class="form-row mt-5">
                         <div class="form-group col-md-6">

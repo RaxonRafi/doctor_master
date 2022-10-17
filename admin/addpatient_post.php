@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+  $arr['patient_id'] = $_SESSION['patient_id'];
+
   $arr['name'] = $_POST['name'];
   $arr['birth_date'] = $_POST['birth_date'];
   $arr['mobile'] = $_POST['mobile'];
@@ -22,11 +24,11 @@ session_start();
   $result_after_decode = json_decode($result);
   $data = $result_after_decode->data->profileId;
 
-
-
-   header("location:patient_details.php?id=".$data);
-// if($data != ){
   
+
+   header("location:patient_details.php?mobile=".$arr['mobile']."&name=".$arr['name']."&id=".$data);
+// if($data != ){
+   
 //   $_SESSION['success'] = "Patient added successfully !";
 
 

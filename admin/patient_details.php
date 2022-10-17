@@ -2,8 +2,8 @@
 $patient_details = true;
 require_once "inc/header.php";
 $mobile = $_GET['mobile'];
-$_SESSION['patient_name'] = $_GET['name'];
-$_SESSION['patient_id'] = $_GET['id'];
+ $_SESSION['patient_name'] = $_GET['name'];
+ $_SESSION['patient_id'] = $_GET['id'];
 
 $url = "https://devapi.oxyjon.com/api/doctors/getpatientprofile?mobile=".$mobile;
 $ch = curl_init();
