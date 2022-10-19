@@ -7,6 +7,9 @@ $sql = "SELECT * FROM visit_notes WHERE patient_id = $id";
 $notes = mysqli_query($db_connect,$sql);
 
 $data = mysqli_fetch_assoc($notes);
+//print_r($data)
+
+//print_r($data);
 
 
 ?>
@@ -38,7 +41,7 @@ $data = mysqli_fetch_assoc($notes);
                
            <a class="btn_color" href="visit_notes.php?id=<?php echo $id ?>">Create New visit Notes</a> 
 
-           <h1 class="float-right" ><?php echo $data['patient_name']?></h1>
+           <h1 class="float-right" ><?php echo (isset( $data['patient_name']) ? $data['patient_name'] :'' )?> </h1>
 
          <div class="table-responsive">
             <table class="table table-striped table-bordered table-hover text-center">
@@ -59,9 +62,17 @@ $data = mysqli_fetch_assoc($notes);
                        ?>
 
                         <tr >
-                            <td><?php echo $note['patient_id'] ?></td>
-                            <td><?php echo $note['created_at']?></td>
-                            
+                            <td>
+                                
+                                     <?php echo $note['patient_id'] ?></td>
+                               
+                                
+                           
+                            <td>
+                        
+                              
+                                <?php echo $note['created_at']?></td>
+                           
                             <td>
                                 <a type="button" href="visitlistshow.php?id=<?php echo $note['id']  ?>" class="btn_color">View Visit Notes</a>
                             </td>

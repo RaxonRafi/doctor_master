@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 10, 2022 at 11:00 AM
+-- Generation Time: Oct 19, 2022 at 10:36 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -33,7 +33,7 @@ CREATE TABLE `medicines` (
   `patient_id` int(11) NOT NULL,
   `medicine_name` varchar(20) NOT NULL,
   `quantity` int(10) NOT NULL,
-  `time_of_the_day` varchar(30) NOT NULL,
+  `time_of_the_day` varchar(100) NOT NULL,
   `continue_till` varchar(6) NOT NULL,
   `continue_till_date` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -52,7 +52,11 @@ INSERT INTO `medicines` (`id`, `doc_id`, `patient_id`, `medicine_name`, `quantit
 (10, 8, 4170, 'AFOGLIP TAB 20MG 10S', 100, 'Before lunch', 'day', 20),
 (11, 8, 4170, 'LIQUI D3 CAP 4S', 241, 'Empty stomach,Bed time', 'month', 1),
 (13, 8, 4189, 'Kabibite Disket Disk', 100, 'Before lunch', 'day', 12),
-(14, 8, 4189, '4U-Q10 PLUS Capsule ', 100, 'Before lunch', 'day', 12);
+(14, 8, 4189, '4U-Q10 PLUS Capsule ', 100, 'Before lunch', 'day', 12),
+(15, 8, 4193, 'Arachitol 3L INJ 1s', 12, 'After breakfast,Before lunch', 'day', 12),
+(16, 8, 4194, 'Amlokind Tablet 5 MG', 222, 'Empty stomach,Before breakfast', 'day', 12),
+(17, 8, 4194, 'Amlokind-AT Table 10', 12, 'Before breakfast,Before lunch', 'month', 1),
+(18, 8, 4194, 'A To Z Gold Capsule ', 12, 'Empty stomach,After breakfast,After lunch', 'day', 12);
 
 -- --------------------------------------------------------
 
@@ -76,7 +80,9 @@ INSERT INTO `reports` (`id`, `patient_id`, `doc_id`, `report_name`, `report`) VA
 (5, 4187, 8, ' Blood TEST Report', '2326.8208.2584550791663684514 (1).pdf'),
 (6, 4186, 8, ' Blood TEST Report', '3986.8208.2584550791663684514 (1).pdf'),
 (7, 4185, 8, ' Blood TEST Report', '8676.Dm-assignment2.pdf'),
-(8, 4184, 8, ' Blood TEST Report', '1653.3021.2584550791663684514.pdf');
+(8, 4184, 8, ' Blood TEST Report', '1653.3021.2584550791663684514.pdf'),
+(10, 4193, 8, ' Blood TEST Report', '8833.8492.Muhammad_rafi_resume2.pdf'),
+(11, 4194, 8, ' Blood TEST Report', '9996.8492.Muhammad_rafi_resume2.pdf');
 
 -- --------------------------------------------------------
 
@@ -130,7 +136,10 @@ INSERT INTO `visit_notes` (`id`, `doc_id`, `patient_id`, `patient_name`, `examin
 (19, 8, 4189, 'Kabir-122', ' Blood testu', '1.2', 1.11, 1.2, 1.3, 1, 1.1, 1, 111, 12, 12, 2, 1, 2, 1, 'Type 2 Diabetes', 'High Blood pressure', 'Type 1 Diabetes', 'High Blood pressure', 'Arthritis', 'Appendectomy', 'Cardiologist', 'Similique tempora qu', 'Month', 15, 'Lifestyle modification', '2022-10-08'),
 (20, 8, 4189, 'Kabir-122', ' Blood suger', '12', 12, 12, 12, 12, 12, 121, 12, 21, 12, 12, 12, 1, 1, 'Type 1 Diabetes', 'Type 1 Diabetes', 'Type 1 Diabetes', 'Type 1 Diabetes', 'Appendicitis', 'Artificial insemination', 'Ophthalmologist', 'Nam ullam amet est', 'Day ', 15, 'Lifestyle modification', '2022-10-08'),
 (21, 8, 4189, 'Kabir-122', ' Test update', '1.2', 2, 12, 12, 22, 1, 121, 12, 1, 12, 12, 12, 12, 12, 'Type 1 Diabetes', 'Type 1 Diabetes', 'High Blood pressure', 'Type 1 Diabetes', 'Acute lymphoblastic leukemia', 'Dialysis', 'Nephrologist', 'Test', 'Month', 12, 'Lifestyle modification', '2022-10-10'),
-(22, 8, 4187, 'Casey Washington', ' 2nd Data', '1.2', 2, 12, 12, 22, 12, 121, 12, 12, 1, 12, 12, 12, 12, 'Type 2 Diabetes', 'Type 2 Diabetes', 'Type 2 Diabetes', 'Type 2 Diabetes', 'Anorexia nervosa', 'Artificial insemination', 'Ophthalmologist', 'Suscipit quae perfer', 'Day ', 2, 'Dietary modification;Lifestyle', '2022-10-10');
+(22, 8, 4187, 'Casey Washington', ' 2nd Data', '1.2', 2, 12, 12, 22, 12, 121, 12, 12, 1, 12, 12, 12, 12, 'Type 2 Diabetes', 'Type 2 Diabetes', 'Type 2 Diabetes', 'Type 2 Diabetes', 'Anorexia nervosa', 'Artificial insemination', 'Ophthalmologist', 'Suscipit quae perfer', 'Day ', 2, 'Dietary modification;Lifestyle', '2022-10-10'),
+(23, 8, 4193, 'abc', 'Hello world', '1.2', 12, 12, 12, 1, 12, 121, 12, 12, 12, 12, 1, 12, 2, 'High Blood pressure', 'High Blood pressure', 'Type 1 Diabetes', 'Type 2 Diabetes', 'Ankle osteoarthritis', 'Artificial insemination', 'Ophthalmologist', 'Eum voluptatibus con', 'Month', 12, 'Lifestyle modification', '2022-10-17'),
+(24, 8, 4193, 'abc', ' New Visit', '12', 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 21, 12, 12, 'Type 2 Diabetes', 'Type 2 Diabetes', 'Type 2 Diabetes', 'Type 2 Diabetes', 'Appendicitis', 'Artificial urinary sphincter surgery', 'Nephrologist', 'Maxime qui aut elige', 'Month ', 1, 'Blood sugar charting', '2022-10-19'),
+(25, 8, 4194, 'Regina Thornton', ' LOrekjkiNHDIOfaoshoifgawf', '1.2', 2, 12, 12, 22, 1, 121, 111, 21, 12, 12, 12, 12, 12, 'Type 2 Diabetes', 'Type 2 Diabetes', 'Type 2 Diabetes', 'Type 1 Diabetes', 'Anorexia nervosa', 'Artificial insemination', 'Ophthalmologist', 'Maxime qui aut elige', 'Month ', 12, 'Dietary modification', '2022-10-19');
 
 --
 -- Indexes for dumped tables
@@ -162,19 +171,19 @@ ALTER TABLE `visit_notes`
 -- AUTO_INCREMENT for table `medicines`
 --
 ALTER TABLE `medicines`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `reports`
 --
 ALTER TABLE `reports`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `visit_notes`
 --
 ALTER TABLE `visit_notes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
