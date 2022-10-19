@@ -14,9 +14,9 @@ if(!isset($_SESSION['mobileNumber'] )){
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>ProClinic-Bootstrap4 Hospital Admin</title>
+    <title>Oxyjon</title>
     <!-- Fav  Icon Link -->
-    <link rel="shortcut icon" type="image/png" href="images/fav.png">
+    <link rel="shortcut icon" type="image/png" href="images/rsz_oxyjon_logo_1.png">
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- themify icons CSS -->
