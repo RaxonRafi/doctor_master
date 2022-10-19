@@ -7,9 +7,6 @@ $sql = "SELECT * FROM visit_notes WHERE patient_id = $id";
 $notes = mysqli_query($db_connect,$sql);
 
 $data = mysqli_fetch_assoc($notes);
-//print_r($data)
-
-//print_r($data);
 
 
 ?>
