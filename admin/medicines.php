@@ -72,12 +72,12 @@ $doc_id = $_SESSION['doc_id'];
                                 <label>Continue till</label>
                                 <div class="form-group d-flex">
 
-                                    <select name="continue_till" col="3" class="form-control" id="exampleFormControlSelect1">
+                                    <select name="continue_till" style="width:50% ;" class="form-control" id="exampleFormControlSelect1">
                                         <option>--Select day or month--</option>
                                         <option value="day">Day</option>
                                         <option value="month">Month</option>
                                     </select>
-                                    <input name="date" placeholder="enter date" type="number">
+                                    <input name="date" style="width:50% ;" placeholder="enter date" type="number">
                                 </div>
                             </div>
                             <button name="submit" type="submit" class="btn_color">Submit</button>

@@ -304,7 +304,7 @@ $procedures = $result_after_decode->data->Procedure;
                                 ?>
                             </select>
                         </div>
-                        <label>Investigation</label>
+                        <label>Advise for Procedure</label>
                         <div class="form-group">
                             <select name="investigation[]" style="width: 75%;" class="form-control" id="investigation_dropdown" multiple>
                                 <option>--List of Tests--</option>
@@ -330,7 +330,7 @@ $procedures = $result_after_decode->data->Procedure;
                                 <option>Footcare Specialist</option>
                             </select>
                         </div>
-                        <label>Advise for Procedure</label>
+                        <label>Investigation</label>
                         <div class="form-group">
                             <input name="advise_for_procedure" type="text" style="width: 75%;" class="form-control form-control-sm" placeholder="" aria-controls="tableId">
                         </div>
@@ -638,7 +638,7 @@ $procedures = $result_after_decode->data->Procedure;
                                 ?>
                             </tr>
                             <tr>
-                                <td><strong>Investigation </strong></td>
+                                <td><strong>Advise for Procedure </strong></td>
                                 <?php
                                if(isset($data['investigation'])){
                                 ?>
@@ -659,7 +659,7 @@ $procedures = $result_after_decode->data->Procedure;
                                 ?>
                             </tr>
                             <tr>
-                                <td><strong>Advise for Procedure </strong></td>
+                                <td><strong>investigation</strong></td>
                                 <?php
                                if(isset($data['advise_for_procedure'])){
                                 ?>
